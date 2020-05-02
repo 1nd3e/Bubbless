@@ -33,6 +33,7 @@ class ShapeComponent: GKComponent {
     
     override func didAddToEntity() {
         if let nodeComponent = entity?.component(ofType: NodeComponent.self) {
+            node.entity = nodeComponent.entity
             nodeComponent.node = node
         }
     }

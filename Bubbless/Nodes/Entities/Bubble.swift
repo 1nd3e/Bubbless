@@ -38,6 +38,8 @@ class Bubble: GKEntity {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Methods
+    
     override func copy(with zone: NSZone? = nil) -> Any {
         let bubble = Bubble(size: size, color: color)
         
@@ -48,6 +50,37 @@ class Bubble: GKEntity {
         }
         
         return bubble
+    }
+    
+    func select(completion block: @escaping () -> Void) {
+        if let node = component(ofType: NodeComponent.self)?.node {
+            let scaleAction = SKAction.scale(to: 0.5, duration: 0.5)
+            scaleAction.timingMode = .easeInEaseOut
+            
+            node.run(scaleAction) {
+                block()
+            }
+        }
+    }
+    
+    func deselect() {
+        if let node = component(ofType: NodeComponent.self)?.node {
+            let scaleAction = SKAction.scale(to: 1.0, duration: 0.5)
+            scaleAction.timingMode = .easeInEaseOut
+            
+            node.run(scaleAction)
+        }
+    }
+    
+    func hide(completion block: @escaping () -> Void) {
+        if let node = component(ofType: NodeComponent.self)?.node {
+            let scaleAction = SKAction.scale(to: 0.0, duration: 0.5)
+            scaleAction.timingMode = .easeInEaseOut
+            
+            node.run(scaleAction) {
+                block()
+            }
+        }
     }
     
 }

@@ -18,6 +18,7 @@
 		780820ED245DC45E00DE6722 /* ShapeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780820EC245DC45E00DE6722 /* ShapeComponent.swift */; };
 		780820EF245DC67F00DE6722 /* PhysicsBodyComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780820EE245DC67F00DE6722 /* PhysicsBodyComponent.swift */; };
 		780820F1245DC85C00DE6722 /* Bubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780820F0245DC85C00DE6722 /* Bubble.swift */; };
+		780820F3245E0DF400DE6722 /* Array+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780820F2245E0DF400DE6722 /* Array+Additions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		780820EC245DC45E00DE6722 /* ShapeComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeComponent.swift; sourceTree = "<group>"; };
 		780820EE245DC67F00DE6722 /* PhysicsBodyComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsBodyComponent.swift; sourceTree = "<group>"; };
 		780820F0245DC85C00DE6722 /* Bubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bubble.swift; sourceTree = "<group>"; };
+		780820F2245E0DF400DE6722 /* Array+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Additions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 		780820E8245DBEB200DE6722 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				780820F2245E0DF400DE6722 /* Array+Additions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				780820D1245DBDD300DE6722 /* GameScene.swift in Sources */,
+				780820F3245E0DF400DE6722 /* Array+Additions.swift in Sources */,
 				780820D3245DBDD300DE6722 /* GameViewController.swift in Sources */,
 				780820CB245DBDD300DE6722 /* AppDelegate.swift in Sources */,
 				780820EF245DC67F00DE6722 /* PhysicsBodyComponent.swift in Sources */,

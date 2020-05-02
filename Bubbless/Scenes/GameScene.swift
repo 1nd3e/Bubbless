@@ -12,8 +12,15 @@ import GameplayKit
 class GameScene: SKScene {
     
     private var bubbles = [Bubble]()
+    private var selectedBubbles = Set<Bubble>()
     
     private var entities = Set<GKEntity>()
+    
+}
+
+// MARK: - Loading and Resizing Events
+
+extension GameScene {
     
     override func didMove(to view: SKView) {
         // Настраиваем параметры сцены игры
@@ -24,6 +31,33 @@ class GameScene: SKScene {
         
         // Запускаем игровую логику
         spawnBubbles()
+    }
+    
+}
+
+// MARK: - Frame-Cycle Events
+
+extension GameScene {
+    
+    override func update(_ currentTime: TimeInterval) {
+        if selectedBubbles.count >= 3 {
+            var bubbleColors = selectedBubbles.map { $0.color }
+            bubbleColors.removeDuplicates()
+            
+            if bubbleColors.count == 1 {
+                for bubble in selectedBubbles {
+                    bubble.hide {
+                        self.removeEntity(bubble)
+                    }
+                }
+            } else {
+                for bubble in selectedBubbles {
+                    bubble.deselect()
+                }
+            }
+            
+            selectedBubbles.removeAll()
+        }
     }
     
 }
@@ -131,6 +165,25 @@ extension GameScene {
         }
         
         entities.remove(entity)
+    }
+    
+}
+
+// MARK: - Touch Events
+
+extension GameScene {
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for touch in touches {
+            let location = touch.location(in: self)
+            let node = atPoint(location)
+            
+            if let bubble = node.entity as? Bubble {
+                bubble.select {
+                    self.selectedBubbles.insert(bubble)
+                }
+            }
+        }
     }
     
 }
