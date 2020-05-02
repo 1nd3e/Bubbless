@@ -11,6 +11,8 @@ import GameplayKit
 
 class GameScene: SKScene {
     
+    private var entities = Set<GKEntity>()
+    
     override func didMove(to view: SKView) {
         addPhysicsEdges()
     }
@@ -31,6 +33,28 @@ extension GameScene {
         physicsBody.affectedByGravity = false
         
         self.physicsBody = physicsBody
+    }
+    
+}
+
+// MARK: - Entity Methods
+
+extension GameScene {
+    
+    private func addEntity(_ entity: GKEntity) {
+        entities.insert(entity)
+        
+        if let node = entity.component(ofType: NodeComponent.self)?.node {
+            addChild(node)
+        }
+    }
+    
+    private func removeEntity(_ entity: GKEntity) {
+        if let node = entity.component(ofType: NodeComponent.self)?.node {
+            node.removeFromParent()
+        }
+        
+        entities.remove(entity)
     }
     
 }
