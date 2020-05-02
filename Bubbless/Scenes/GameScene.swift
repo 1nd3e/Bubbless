@@ -22,7 +22,7 @@ class GameScene: SKScene {
     
 }
 
-// MARK: - Loading and Resizing Events
+// MARK: - Scene Events
 
 extension GameScene {
     
@@ -42,7 +42,7 @@ extension GameScene {
     
 }
 
-// MARK: - Scene
+// MARK: - Scene Configuration
 
 extension GameScene {
     
