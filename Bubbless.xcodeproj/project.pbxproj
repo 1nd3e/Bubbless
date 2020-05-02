@@ -19,6 +19,9 @@
 		780820EF245DC67F00DE6722 /* PhysicsBodyComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780820EE245DC67F00DE6722 /* PhysicsBodyComponent.swift */; };
 		780820F1245DC85C00DE6722 /* Bubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780820F0245DC85C00DE6722 /* Bubble.swift */; };
 		780820F3245E0DF400DE6722 /* Array+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780820F2245E0DF400DE6722 /* Array+Additions.swift */; };
+		780820F6245E1E3B00DE6722 /* ScoreLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780820F5245E1E3B00DE6722 /* ScoreLabel.swift */; };
+		780820F8245E1E8500DE6722 /* LabelComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780820F7245E1E8500DE6722 /* LabelComponent.swift */; };
+		780820FB245E21C700DE6722 /* SF-Pro-Display-Ultralight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 780820FA245E21C700DE6722 /* SF-Pro-Display-Ultralight.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +39,9 @@
 		780820EE245DC67F00DE6722 /* PhysicsBodyComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsBodyComponent.swift; sourceTree = "<group>"; };
 		780820F0245DC85C00DE6722 /* Bubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bubble.swift; sourceTree = "<group>"; };
 		780820F2245E0DF400DE6722 /* Array+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Additions.swift"; sourceTree = "<group>"; };
+		780820F5245E1E3B00DE6722 /* ScoreLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreLabel.swift; sourceTree = "<group>"; };
+		780820F7245E1E8500DE6722 /* LabelComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelComponent.swift; sourceTree = "<group>"; };
+		780820FA245E21C700DE6722 /* SF-Pro-Display-Ultralight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Ultralight.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +96,7 @@
 		780820E3245DBE6200DE6722 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				780820F4245E1DE300DE6722 /* UI */,
 				780820F0245DC85C00DE6722 /* Bubble.swift */,
 			);
 			path = Entities;
@@ -100,6 +107,7 @@
 			children = (
 				780820EA245DC29700DE6722 /* NodeComponent.swift */,
 				780820EC245DC45E00DE6722 /* ShapeComponent.swift */,
+				780820F7245E1E8500DE6722 /* LabelComponent.swift */,
 				780820EE245DC67F00DE6722 /* PhysicsBodyComponent.swift */,
 			);
 			path = Components;
@@ -141,12 +149,29 @@
 		780820E9245DBEBB00DE6722 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				780820F9245E21BB00DE6722 /* Fonts */,
 				780820D4245DBDD300DE6722 /* Main.storyboard */,
 				780820D7245DBDD700DE6722 /* Assets.xcassets */,
 				780820D9245DBDD700DE6722 /* LaunchScreen.storyboard */,
 				780820DC245DBDD700DE6722 /* Info.plist */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		780820F4245E1DE300DE6722 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				780820F5245E1E3B00DE6722 /* ScoreLabel.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		780820F9245E21BB00DE6722 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				780820FA245E21C700DE6722 /* SF-Pro-Display-Ultralight.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,6 +234,7 @@
 			files = (
 				780820D6245DBDD300DE6722 /* Main.storyboard in Resources */,
 				780820CD245DBDD300DE6722 /* GameScene.sks in Resources */,
+				780820FB245E21C700DE6722 /* SF-Pro-Display-Ultralight.otf in Resources */,
 				780820D8245DBDD700DE6722 /* Assets.xcassets in Resources */,
 				780820DB245DBDD700DE6722 /* LaunchScreen.storyboard in Resources */,
 			);
@@ -227,7 +253,9 @@
 				780820CB245DBDD300DE6722 /* AppDelegate.swift in Sources */,
 				780820EF245DC67F00DE6722 /* PhysicsBodyComponent.swift in Sources */,
 				780820F1245DC85C00DE6722 /* Bubble.swift in Sources */,
+				780820F8245E1E8500DE6722 /* LabelComponent.swift in Sources */,
 				780820EB245DC29700DE6722 /* NodeComponent.swift in Sources */,
+				780820F6245E1E3B00DE6722 /* ScoreLabel.swift in Sources */,
 				780820ED245DC45E00DE6722 /* ShapeComponent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

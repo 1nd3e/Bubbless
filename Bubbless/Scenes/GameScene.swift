@@ -11,6 +11,10 @@ import GameplayKit
 
 class GameScene: SKScene {
     
+    var score = 0
+    
+    private var scoreLabel: ScoreLabel!
+    
     private var bubbles = [Bubble]()
     private var selectedBubbles = Set<Bubble>()
     
@@ -28,6 +32,9 @@ extension GameScene {
         
         // Подготавливаем элементы игры к работе
         loadBubbles()
+        
+        // Размещаем элементы окружения
+        configureScoreLabel()
         
         // Запускаем игровую логику
         spawnBubbles()
@@ -49,6 +56,9 @@ extension GameScene {
                     bubble.hide {
                         self.removeEntity(bubble)
                     }
+                    
+                    score += 1
+                    scoreLabel.set(score)
                 }
             } else {
                 for bubble in selectedBubbles {
@@ -80,6 +90,26 @@ extension GameScene {
     
 }
 
+// MARK: - UI Entities
+
+extension GameScene {
+    
+    private func configureScoreLabel() {
+        scoreLabel = ScoreLabel()
+        
+        if let node = scoreLabel.component(ofType: NodeComponent.self)?.node {
+            node.zPosition = 0
+            
+            if let labelNode = scoreLabel.component(ofType: LabelComponent.self)?.node {
+                labelNode.text = String(score)
+            }
+        }
+        
+        addEntity(scoreLabel)
+    }
+    
+}
+
 // MARK: - Bubble Entities
 
 extension GameScene {
@@ -89,6 +119,7 @@ extension GameScene {
         
         if let node = bubble.component(ofType: NodeComponent.self)?.node {
             node.position = position
+            node.zPosition = 1
         }
         
         return bubble

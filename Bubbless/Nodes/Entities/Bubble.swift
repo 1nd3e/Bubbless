@@ -46,6 +46,7 @@ class Bubble: GKEntity {
         if let rootNode = component(ofType: NodeComponent.self)?.node {
             if let node = bubble.component(ofType: NodeComponent.self)?.node {
                 node.position = rootNode.position
+                node.zPosition = rootNode.zPosition
             }
         }
         
