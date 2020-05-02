@@ -17,6 +17,7 @@
 		780820EB245DC29700DE6722 /* NodeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780820EA245DC29700DE6722 /* NodeComponent.swift */; };
 		780820ED245DC45E00DE6722 /* ShapeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780820EC245DC45E00DE6722 /* ShapeComponent.swift */; };
 		780820EF245DC67F00DE6722 /* PhysicsBodyComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780820EE245DC67F00DE6722 /* PhysicsBodyComponent.swift */; };
+		780820F1245DC85C00DE6722 /* Bubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780820F0245DC85C00DE6722 /* Bubble.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		780820EA245DC29700DE6722 /* NodeComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeComponent.swift; sourceTree = "<group>"; };
 		780820EC245DC45E00DE6722 /* ShapeComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeComponent.swift; sourceTree = "<group>"; };
 		780820EE245DC67F00DE6722 /* PhysicsBodyComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsBodyComponent.swift; sourceTree = "<group>"; };
+		780820F0245DC85C00DE6722 /* Bubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bubble.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 		780820E3245DBE6200DE6722 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				780820F0245DC85C00DE6722 /* Bubble.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 				780820D3245DBDD300DE6722 /* GameViewController.swift in Sources */,
 				780820CB245DBDD300DE6722 /* AppDelegate.swift in Sources */,
 				780820EF245DC67F00DE6722 /* PhysicsBodyComponent.swift in Sources */,
+				780820F1245DC85C00DE6722 /* Bubble.swift in Sources */,
 				780820EB245DC29700DE6722 /* NodeComponent.swift in Sources */,
 				780820ED245DC45E00DE6722 /* ShapeComponent.swift in Sources */,
 			);
