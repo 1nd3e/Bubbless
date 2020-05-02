@@ -42,36 +42,6 @@ extension GameScene {
     
 }
 
-// MARK: - Frame-Cycle Events
-
-extension GameScene {
-    
-    override func update(_ currentTime: TimeInterval) {
-        if selectedBubbles.count >= 3 {
-            var bubbleColors = selectedBubbles.map { $0.color }
-            bubbleColors.removeDuplicates()
-            
-            if bubbleColors.count == 1 {
-                for bubble in selectedBubbles {
-                    bubble.hide {
-                        self.removeEntity(bubble)
-                    }
-                    
-                    score += 1
-                    scoreLabel.set(score)
-                }
-            } else {
-                for bubble in selectedBubbles {
-                    bubble.deselect()
-                }
-            }
-            
-            selectedBubbles.removeAll()
-        }
-    }
-    
-}
-
 // MARK: - Scene
 
 extension GameScene {
@@ -154,6 +124,13 @@ extension GameScene {
         }
     }
     
+    private func randomizeBubble() -> Int {
+        let randomSource = GKMersenneTwisterRandomSource()
+        let randomBubble = randomSource.nextInt(upperBound: bubbles.count)
+        
+        return randomBubble
+    }
+    
     private func spawnBubble() {
         let bubbleNumber = randomizeBubble()
         let bubble = bubbles[bubbleNumber].copy() as! Bubble
@@ -169,11 +146,30 @@ extension GameScene {
         self.run(.repeatForever(sequence))
     }
     
-    private func randomizeBubble() -> Int {
-        let randomSource = GKMersenneTwisterRandomSource()
-        let bubbleNumber = randomSource.nextInt(upperBound: bubbles.count)
+    private func select(_ bubble: Bubble) {
+        selectedBubbles.insert(bubble)
         
-        return bubbleNumber
+        if selectedBubbles.count >= 3 {
+            var bubbleColors = selectedBubbles.map { $0.color }
+            bubbleColors.removeDuplicates()
+            
+            if bubbleColors.count == 1 {
+                for bubble in selectedBubbles {
+                    bubble.hide {
+                        self.removeEntity(bubble)
+                    }
+                    
+                    score += 1
+                    scoreLabel.set(score)
+                }
+            } else {
+                for bubble in selectedBubbles {
+                    bubble.deselect()
+                }
+            }
+            
+            selectedBubbles.removeAll()
+        }
     }
     
 }
@@ -211,7 +207,7 @@ extension GameScene {
             
             if let bubble = node.entity as? Bubble {
                 bubble.select {
-                    self.selectedBubbles.insert(bubble)
+                    self.select(bubble)
                 }
             }
         }
