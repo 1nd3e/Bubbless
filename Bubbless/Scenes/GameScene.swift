@@ -12,6 +12,7 @@ import GameplayKit
 class GameScene: SKScene {
     
     var score = 0
+    var lives = 1
     
     private var scoreLabel: ScoreLabel!
     
@@ -184,15 +185,40 @@ extension GameScene {
         let bubbleEntities = entities.filter { $0 is Bubble }
         
         if bubbleEntities.count >= bubbleLimit {
+            let task = DispatchGroup()
+             
             for bubble in bubbleEntities as! Set<Bubble> {
+                task.enter()
+                
                 bubble.select {
                     bubble.hide {
                         self.removeEntity(bubble)
+                        
+                        task.leave()
                     }
                 }
             }
             
+            task.notify(queue: .main) {
+                self.matchEnded()
+            }
+            
             self.removeAllActions()
+        }
+    }
+    
+    private func matchEnded() {
+        if lives > 0 {
+            if let scene = GKScene(fileNamed: "ExtraScene") {
+                if let sceneNode = scene.rootNode as? ExtraScene {
+                    sceneNode.size = self.size
+                    
+                    sceneNode.score = score
+                    sceneNode.lives = lives
+                    
+                    self.view?.presentScene(sceneNode)
+                }
+            }
         }
     }
     

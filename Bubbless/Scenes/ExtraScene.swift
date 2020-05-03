@@ -12,6 +12,7 @@ import GameplayKit
 class ExtraScene: SKScene {
     
     var score = 0
+    var lives = 0
     
     private var entities = Set<GKEntity>()
     
