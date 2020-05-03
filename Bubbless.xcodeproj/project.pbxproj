@@ -28,6 +28,9 @@
 		789E7468245F453D00E9D5E6 /* SF-Pro-Text-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 789E7467245F453D00E9D5E6 /* SF-Pro-Text-Regular.otf */; };
 		789E746A245F575600E9D5E6 /* StartScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 789E7469245F575500E9D5E6 /* StartScene.sks */; };
 		789E746C245F576600E9D5E6 /* StartScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789E746B245F576600E9D5E6 /* StartScene.swift */; };
+		789E746E245F8B3A00E9D5E6 /* AdMob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789E746D245F8B3A00E9D5E6 /* AdMob.swift */; };
+		789E7470245F8B4400E9D5E6 /* GameCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789E746F245F8B4400E9D5E6 /* GameCenter.swift */; };
+		789E7472245F8B4B00E9D5E6 /* IAPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789E7471245F8B4B00E9D5E6 /* IAPService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +57,9 @@
 		789E7467245F453D00E9D5E6 /* SF-Pro-Text-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Regular.otf"; sourceTree = "<group>"; };
 		789E7469245F575500E9D5E6 /* StartScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = StartScene.sks; sourceTree = "<group>"; };
 		789E746B245F576600E9D5E6 /* StartScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScene.swift; sourceTree = "<group>"; };
+		789E746D245F8B3A00E9D5E6 /* AdMob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdMob.swift; sourceTree = "<group>"; };
+		789E746F245F8B4400E9D5E6 /* GameCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCenter.swift; sourceTree = "<group>"; };
+		789E7471245F8B4B00E9D5E6 /* IAPService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +156,9 @@
 		780820E7245DBEA800DE6722 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				789E746D245F8B3A00E9D5E6 /* AdMob.swift */,
+				789E746F245F8B4400E9D5E6 /* GameCenter.swift */,
+				789E7471245F8B4B00E9D5E6 /* IAPService.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -274,7 +283,10 @@
 				780820CB245DBDD300DE6722 /* AppDelegate.swift in Sources */,
 				789E7464245F3B0E00E9D5E6 /* ExtraScene.swift in Sources */,
 				780820EF245DC67F00DE6722 /* PhysicsBodyComponent.swift in Sources */,
+				789E7472245F8B4B00E9D5E6 /* IAPService.swift in Sources */,
 				780820F1245DC85C00DE6722 /* Bubble.swift in Sources */,
+				789E746E245F8B3A00E9D5E6 /* AdMob.swift in Sources */,
+				789E7470245F8B4400E9D5E6 /* GameCenter.swift in Sources */,
 				789E7466245F44A200E9D5E6 /* Button.swift in Sources */,
 				789E746C245F576600E9D5E6 /* StartScene.swift in Sources */,
 				780820F8245E1E8500DE6722 /* LabelComponent.swift in Sources */,
