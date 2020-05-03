@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		66647700B0C3831877B5D55F /* Pods_Bubbless.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87B33328846943F213B85C09 /* Pods_Bubbless.framework */; };
 		780820CB245DBDD300DE6722 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780820CA245DBDD300DE6722 /* AppDelegate.swift */; };
 		780820CD245DBDD300DE6722 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 780820CC245DBDD300DE6722 /* GameScene.sks */; };
 		780820D1245DBDD300DE6722 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780820D0245DBDD300DE6722 /* GameScene.swift */; };
@@ -34,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0BB9C3413CF8DDBA86405EE7 /* Pods-Bubbless.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bubbless.debug.xcconfig"; path = "Target Support Files/Pods-Bubbless/Pods-Bubbless.debug.xcconfig"; sourceTree = "<group>"; };
 		780820C7245DBDD300DE6722 /* Bubbless.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bubbless.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		780820CA245DBDD300DE6722 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		780820CC245DBDD300DE6722 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -60,6 +62,8 @@
 		789E746D245F8B3A00E9D5E6 /* AdMob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdMob.swift; sourceTree = "<group>"; };
 		789E746F245F8B4400E9D5E6 /* GameCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCenter.swift; sourceTree = "<group>"; };
 		789E7471245F8B4B00E9D5E6 /* IAPService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPService.swift; sourceTree = "<group>"; };
+		87B33328846943F213B85C09 /* Pods_Bubbless.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bubbless.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F494D0C4E94EAE20C7F3D68 /* Pods-Bubbless.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bubbless.release.xcconfig"; path = "Target Support Files/Pods-Bubbless/Pods-Bubbless.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,17 +71,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66647700B0C3831877B5D55F /* Pods_Bubbless.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		776D067F055FA82A4D1A3E05 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				87B33328846943F213B85C09 /* Pods_Bubbless.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		780820BE245DBDD300DE6722 = {
 			isa = PBXGroup;
 			children = (
 				780820C9245DBDD300DE6722 /* Bubbless */,
 				780820C8245DBDD300DE6722 /* Products */,
+				B2ADBB5B405D596CA8C49C97 /* Pods */,
+				776D067F055FA82A4D1A3E05 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -201,6 +216,16 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		B2ADBB5B405D596CA8C49C97 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0BB9C3413CF8DDBA86405EE7 /* Pods-Bubbless.debug.xcconfig */,
+				9F494D0C4E94EAE20C7F3D68 /* Pods-Bubbless.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -208,9 +233,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 780820DF245DBDD700DE6722 /* Build configuration list for PBXNativeTarget "Bubbless" */;
 			buildPhases = (
+				DEE5DF2062C376F41A3952EC /* [CP] Check Pods Manifest.lock */,
 				780820C3245DBDD300DE6722 /* Sources */,
 				780820C4245DBDD300DE6722 /* Frameworks */,
 				780820C5245DBDD300DE6722 /* Resources */,
+				D86121852E7DAEF937BB70CB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -271,6 +298,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D86121852E7DAEF937BB70CB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bubbless/Pods-Bubbless-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bubbless/Pods-Bubbless-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Bubbless/Pods-Bubbless-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DEE5DF2062C376F41A3952EC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Bubbless-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		780820C3245DBDD300DE6722 /* Sources */ = {
@@ -434,6 +503,7 @@
 		};
 		780820E0245DBDD700DE6722 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0BB9C3413CF8DDBA86405EE7 /* Pods-Bubbless.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -453,6 +523,7 @@
 		};
 		780820E1245DBDD700DE6722 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F494D0C4E94EAE20C7F3D68 /* Pods-Bubbless.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

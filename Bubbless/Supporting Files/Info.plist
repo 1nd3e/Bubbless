@@ -45,5 +45,7 @@
 		<string>SF-Pro-Display-Ultralight.otf</string>
 		<string>SF-Pro-Text-Regular.otf</string>
 	</array>
+	<key>GADApplicationIdentifier</key>
+	<string>ca-app-pub-3918999064618425~3960858059</string>
 </dict>
 </plist>
