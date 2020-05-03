@@ -24,6 +24,8 @@
 		780820FB245E21C700DE6722 /* SF-Pro-Display-Ultralight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 780820FA245E21C700DE6722 /* SF-Pro-Display-Ultralight.otf */; };
 		789E7462245F3B0300E9D5E6 /* ExtraScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 789E7461245F3B0300E9D5E6 /* ExtraScene.sks */; };
 		789E7464245F3B0E00E9D5E6 /* ExtraScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789E7463245F3B0E00E9D5E6 /* ExtraScene.swift */; };
+		789E7466245F44A200E9D5E6 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789E7465245F44A200E9D5E6 /* Button.swift */; };
+		789E7468245F453D00E9D5E6 /* SF-Pro-Text-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 789E7467245F453D00E9D5E6 /* SF-Pro-Text-Regular.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		780820FA245E21C700DE6722 /* SF-Pro-Display-Ultralight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Ultralight.otf"; sourceTree = "<group>"; };
 		789E7461245F3B0300E9D5E6 /* ExtraScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ExtraScene.sks; sourceTree = "<group>"; };
 		789E7463245F3B0E00E9D5E6 /* ExtraScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtraScene.swift; sourceTree = "<group>"; };
+		789E7465245F44A200E9D5E6 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		789E7467245F453D00E9D5E6 /* SF-Pro-Text-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Regular.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +171,7 @@
 		780820F4245E1DE300DE6722 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				789E7465245F44A200E9D5E6 /* Button.swift */,
 				780820F5245E1E3B00DE6722 /* ScoreLabel.swift */,
 			);
 			path = UI;
@@ -175,6 +180,7 @@
 		780820F9245E21BB00DE6722 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				789E7467245F453D00E9D5E6 /* SF-Pro-Text-Regular.otf */,
 				780820FA245E21C700DE6722 /* SF-Pro-Display-Ultralight.otf */,
 			);
 			path = Fonts;
@@ -244,6 +250,7 @@
 				780820FB245E21C700DE6722 /* SF-Pro-Display-Ultralight.otf in Resources */,
 				780820D8245DBDD700DE6722 /* Assets.xcassets in Resources */,
 				780820DB245DBDD700DE6722 /* LaunchScreen.storyboard in Resources */,
+				789E7468245F453D00E9D5E6 /* SF-Pro-Text-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +268,7 @@
 				789E7464245F3B0E00E9D5E6 /* ExtraScene.swift in Sources */,
 				780820EF245DC67F00DE6722 /* PhysicsBodyComponent.swift in Sources */,
 				780820F1245DC85C00DE6722 /* Bubble.swift in Sources */,
+				789E7466245F44A200E9D5E6 /* Button.swift in Sources */,
 				780820F8245E1E8500DE6722 /* LabelComponent.swift in Sources */,
 				780820EB245DC29700DE6722 /* NodeComponent.swift in Sources */,
 				780820F6245E1E3B00DE6722 /* ScoreLabel.swift in Sources */,

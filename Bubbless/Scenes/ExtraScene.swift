@@ -27,6 +27,11 @@ extension ExtraScene {
         
         // Размещаем элементы окружения
         configureScoreLabel()
+        
+        // Размещаем кнопки
+        configureMessageButton(withDelay: 0)
+        configureDeclineButton(withDelay: 2)
+        configurePlayButton(withDelay: 4)
     }
     
 }
@@ -65,6 +70,78 @@ extension ExtraScene {
         }
         
         addEntity(scoreLabel)
+    }
+    
+    private func configurePlayButton(withDelay sec: TimeInterval) {
+        let size = CGSize(width: frame.width / 2, height: frame.width / 2)
+        let color = SKColor(red: 0.83, green: 0.18, blue: 0.18, alpha: 1.00)
+        
+        let button = Button(size: size, color: color)
+        
+        if let node = button.component(ofType: NodeComponent.self)?.node {
+            node.name = "Watch Ads"
+            node.position = CGPoint(x: frame.midX - size.width / 2, y: frame.maxY * 2)
+            node.zPosition = 1
+            
+            if let labelNode = button.component(ofType: LabelComponent.self)?.node {
+                labelNode.text = "Watch Ads"
+                labelNode.preferredMaxLayoutWidth = size.width - 56
+                labelNode.lineBreakMode = .byTruncatingTail
+                labelNode.numberOfLines = 0
+            }
+        }
+        
+        self.run(.wait(forDuration: sec)) {
+            self.addEntity(button)
+        }
+    }
+    
+    private func configureDeclineButton(withDelay sec: TimeInterval) {
+        let size = CGSize(width: frame.width / 2, height: frame.width / 2)
+        let color = SKColor(red: 0.96, green: 0.49, blue: 0.00, alpha: 1.00)
+        
+        let button = Button(size: size, color: color)
+        
+        if let node = button.component(ofType: NodeComponent.self)?.node {
+            node.name = "Decline"
+            node.position = CGPoint(x: frame.midX + size.width / 2, y: frame.maxY * 2)
+            node.zPosition = 1
+            
+            if let labelNode = button.component(ofType: LabelComponent.self)?.node {
+                labelNode.text = "Decline"
+                labelNode.preferredMaxLayoutWidth = size.width - 56
+                labelNode.lineBreakMode = .byTruncatingTail
+                labelNode.numberOfLines = 0
+            }
+        }
+        
+        self.run(.wait(forDuration: sec)) {
+            self.addEntity(button)
+        }
+    }
+    
+    private func configureMessageButton(withDelay sec: TimeInterval) {
+        let size = CGSize(width: frame.width / 2, height: frame.width / 2)
+        let color = SKColor(red: 0.27, green: 0.35, blue: 0.39, alpha: 1.00)
+        
+        let button = Button(size: size, color: color)
+        
+        if let node = button.component(ofType: NodeComponent.self)?.node {
+            node.name = "How about an extra life?"
+            node.position = CGPoint(x: frame.midX, y: frame.maxY * 2)
+            node.zPosition = 1
+            
+            if let labelNode = button.component(ofType: LabelComponent.self)?.node {
+                labelNode.text = "How about an extra life?"
+                labelNode.preferredMaxLayoutWidth = size.width - 56
+                labelNode.lineBreakMode = .byTruncatingTail
+                labelNode.numberOfLines = 0
+            }
+        }
+        
+        self.run(.wait(forDuration: sec)) {
+            self.addEntity(button)
+        }
     }
     
 }
