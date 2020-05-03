@@ -15,8 +15,8 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let scene = GKScene(fileNamed: "GameScene") {
-            if let sceneNode = scene.rootNode as! GameScene? {
+        if let scene = GKScene(fileNamed: "StartScene") {
+            if let sceneNode = scene.rootNode as? StartScene {
                 if let view = self.view as! SKView? {
                     sceneNode.size = view.bounds.size
                     

@@ -26,6 +26,8 @@
 		789E7464245F3B0E00E9D5E6 /* ExtraScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789E7463245F3B0E00E9D5E6 /* ExtraScene.swift */; };
 		789E7466245F44A200E9D5E6 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789E7465245F44A200E9D5E6 /* Button.swift */; };
 		789E7468245F453D00E9D5E6 /* SF-Pro-Text-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 789E7467245F453D00E9D5E6 /* SF-Pro-Text-Regular.otf */; };
+		789E746A245F575600E9D5E6 /* StartScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 789E7469245F575500E9D5E6 /* StartScene.sks */; };
+		789E746C245F576600E9D5E6 /* StartScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789E746B245F576600E9D5E6 /* StartScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		789E7463245F3B0E00E9D5E6 /* ExtraScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtraScene.swift; sourceTree = "<group>"; };
 		789E7465245F44A200E9D5E6 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		789E7467245F453D00E9D5E6 /* SF-Pro-Text-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Regular.otf"; sourceTree = "<group>"; };
+		789E7469245F575500E9D5E6 /* StartScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = StartScene.sks; sourceTree = "<group>"; };
+		789E746B245F576600E9D5E6 /* StartScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +128,8 @@
 		780820E5245DBE7A00DE6722 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				789E7469245F575500E9D5E6 /* StartScene.sks */,
+				789E746B245F576600E9D5E6 /* StartScene.swift */,
 				780820CC245DBDD300DE6722 /* GameScene.sks */,
 				780820D0245DBDD300DE6722 /* GameScene.swift */,
 				789E7461245F3B0300E9D5E6 /* ExtraScene.sks */,
@@ -245,6 +251,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				780820D6245DBDD300DE6722 /* Main.storyboard in Resources */,
+				789E746A245F575600E9D5E6 /* StartScene.sks in Resources */,
 				789E7462245F3B0300E9D5E6 /* ExtraScene.sks in Resources */,
 				780820CD245DBDD300DE6722 /* GameScene.sks in Resources */,
 				780820FB245E21C700DE6722 /* SF-Pro-Display-Ultralight.otf in Resources */,
@@ -269,6 +276,7 @@
 				780820EF245DC67F00DE6722 /* PhysicsBodyComponent.swift in Sources */,
 				780820F1245DC85C00DE6722 /* Bubble.swift in Sources */,
 				789E7466245F44A200E9D5E6 /* Button.swift in Sources */,
+				789E746C245F576600E9D5E6 /* StartScene.swift in Sources */,
 				780820F8245E1E8500DE6722 /* LabelComponent.swift in Sources */,
 				780820EB245DC29700DE6722 /* NodeComponent.swift in Sources */,
 				780820F6245E1E3B00DE6722 /* ScoreLabel.swift in Sources */,
