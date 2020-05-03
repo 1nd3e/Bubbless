@@ -141,7 +141,8 @@ extension GameScene {
     private func spawnBubbles() {
         let wait = SKAction.wait(forDuration: 0.5, withRange: 0.5)
         let spawnBubble = SKAction.run { self.spawnBubble() }
-        let sequence = SKAction.sequence([wait, spawnBubble])
+        let trackMatch = SKAction.run { self.trackMatch() }
+        let sequence = SKAction.sequence([wait, spawnBubble, trackMatch])
         
         self.run(.repeatForever(sequence))
     }
@@ -169,6 +170,29 @@ extension GameScene {
             }
             
             selectedBubbles.removeAll()
+        }
+    }
+    
+}
+
+// MARK: - Match Methods
+
+extension GameScene {
+    
+    private func trackMatch() {
+        let bubbleLimit = 32
+        let bubbleEntities = entities.filter { $0 is Bubble }
+        
+        if bubbleEntities.count >= bubbleLimit {
+            for bubble in bubbleEntities as! Set<Bubble> {
+                bubble.select {
+                    bubble.hide {
+                        self.removeEntity(bubble)
+                    }
+                }
+            }
+            
+            self.removeAllActions()
         }
     }
     
