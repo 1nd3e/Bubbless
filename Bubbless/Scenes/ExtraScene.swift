@@ -11,6 +11,8 @@ import GameplayKit
 
 class ExtraScene: SKScene {
     
+    var score = 0
+    
     private var entities = Set<GKEntity>()
     
 }
@@ -22,6 +24,9 @@ extension ExtraScene {
     override func didMove(to view: SKView) {
         // Настраиваем параметры сцены игры
         addPhysicsEdges()
+        
+        // Размещаем элементы окружения
+        configureScoreLabel()
     }
     
 }
@@ -40,6 +45,26 @@ extension ExtraScene {
         physicsBody.affectedByGravity = false
         
         self.physicsBody = physicsBody
+    }
+    
+}
+
+// MARK: - UI Entities
+
+extension ExtraScene {
+    
+    private func configureScoreLabel() {
+        let scoreLabel = ScoreLabel()
+        
+        if let node = scoreLabel.component(ofType: NodeComponent.self)?.node {
+            node.zPosition = 0
+            
+            if let labelNode = scoreLabel.component(ofType: LabelComponent.self)?.node {
+                labelNode.text = String(score)
+            }
+        }
+        
+        addEntity(scoreLabel)
     }
     
 }
