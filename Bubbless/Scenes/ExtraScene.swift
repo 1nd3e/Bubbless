@@ -121,6 +121,36 @@ extension ExtraScene {
         }
     }
     
+    private func declineButtonPressed() {
+        if let scene = GKScene(fileNamed: "StartScene") {
+            if let sceneNode = scene.rootNode as? StartScene {
+                sceneNode.size = self.size
+                
+                let task = DispatchGroup()
+                let buttons = entities.filter { $0 is Button }
+                
+                for button in buttons as! Set<Button> {
+                    task.enter()
+                    
+                    button.select {
+                        button.hide {
+                            self.removeEntity(button)
+                            
+                            task.leave()
+                        }
+                    }
+                }
+                
+                task.notify(queue: .main) {
+                    let sceneTransition = SKTransition.fade(with: SKColor(red: 0.93, green: 0.93, blue: 0.93, alpha: 1.00), duration: 0.5)
+                    sceneTransition.pausesOutgoingScene = false
+                    
+                    self.view?.presentScene(sceneNode, transition: sceneTransition)
+                }
+            }
+        }
+    }
+    
     private func configureMessageButton(withDelay sec: TimeInterval) {
         let size = CGSize(width: frame.width / 2, height: frame.width / 2)
         let color = SKColor(red: 0.27, green: 0.35, blue: 0.39, alpha: 1.00)
@@ -165,6 +195,25 @@ extension ExtraScene {
         }
         
         entities.remove(entity)
+    }
+    
+}
+
+// MARK: - Touch Events
+
+extension ExtraScene {
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for touch in touches {
+            let location = touch.location(in: self)
+            let node = atPoint(location)
+            
+            if let button = node.entity as? Button {
+                if button.name == "Decline" {
+                    declineButtonPressed()
+                }
+            }
+        }
     }
     
 }
