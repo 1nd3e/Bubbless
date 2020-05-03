@@ -15,6 +15,8 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        AdMob.shared.viewController = self
+        
         if let scene = GKScene(fileNamed: "StartScene") {
             if let sceneNode = scene.rootNode as? StartScene {
                 if let view = self.view as! SKView? {
