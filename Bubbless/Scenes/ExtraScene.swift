@@ -78,9 +78,9 @@ extension ExtraScene {
         let color = SKColor(red: 0.83, green: 0.18, blue: 0.18, alpha: 1.00)
         
         let button = Button(size: size, color: color)
+        button.name = "Watch Ads"
         
         if let node = button.component(ofType: NodeComponent.self)?.node {
-            node.name = "Watch Ads"
             node.position = CGPoint(x: frame.midX - size.width / 2, y: frame.maxY * 2)
             node.zPosition = 1
             
@@ -102,9 +102,9 @@ extension ExtraScene {
         let color = SKColor(red: 0.96, green: 0.49, blue: 0.00, alpha: 1.00)
         
         let button = Button(size: size, color: color)
+        button.name = "Decline"
         
         if let node = button.component(ofType: NodeComponent.self)?.node {
-            node.name = "Decline"
             node.position = CGPoint(x: frame.midX + size.width / 2, y: frame.maxY * 2)
             node.zPosition = 1
             
@@ -126,9 +126,9 @@ extension ExtraScene {
         let color = SKColor(red: 0.27, green: 0.35, blue: 0.39, alpha: 1.00)
         
         let button = Button(size: size, color: color)
+        button.name = "How about an extra life?"
         
         if let node = button.component(ofType: NodeComponent.self)?.node {
-            node.name = "How about an extra life?"
             node.position = CGPoint(x: frame.midX, y: frame.maxY * 2)
             node.zPosition = 1
             

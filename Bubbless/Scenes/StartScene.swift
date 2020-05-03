@@ -60,9 +60,9 @@ extension StartScene {
         let color = SKColor(red: 0.83, green: 0.18, blue: 0.18, alpha: 1.00)
         
         let button = Button(size: size, color: color)
+        button.name = "Let’s Play"
         
         if let node = button.component(ofType: NodeComponent.self)?.node {
-            node.name = "Let’s Play"
             node.position = CGPoint(x: frame.midX, y: frame.maxY * 2)
             node.zPosition = 1
             
@@ -79,14 +79,44 @@ extension StartScene {
         }
     }
     
+    private func playButtonPressed() {
+        if let scene = GKScene(fileNamed: "GameScene") {
+            if let sceneNode = scene.rootNode as? GameScene {
+                sceneNode.size = self.size
+                
+                let task = DispatchGroup()
+                let buttons = entities.filter { $0 is Button }
+                
+                for button in buttons as! Set<Button> {
+                    task.enter()
+                    
+                    button.select {
+                        button.hide {
+                            self.removeEntity(button)
+                            
+                            task.leave()
+                        }
+                    }
+                }
+                
+                task.notify(queue: .main) {
+                    let sceneTransition = SKTransition.fade(with: SKColor(red: 0.93, green: 0.93, blue: 0.93, alpha: 1.00), duration: 0.5)
+                    sceneTransition.pausesOutgoingScene = false
+                    
+                    self.view?.presentScene(sceneNode, transition: sceneTransition)
+                }
+            }
+        }
+    }
+    
     private func configureLeaderboardButton(withDelay sec: TimeInterval) {
         let size = CGSize(width: frame.width / 2, height: frame.width / 2)
         let color = SKColor(red: 0.32, green: 0.18, blue: 0.66, alpha: 1.00)
         
         let button = Button(size: size, color: color)
+        button.name = "Leaderboard"
         
         if let node = button.component(ofType: NodeComponent.self)?.node {
-            node.name = "Leaderboard"
             node.position = CGPoint(x: frame.midX - size.width / 2, y: frame.maxY * 2)
             node.zPosition = 1
             
@@ -108,9 +138,9 @@ extension StartScene {
         let color = SKColor(red: 0.10, green: 0.46, blue: 0.82, alpha: 1.00)
         
         let button = Button(size: size, color: color)
+        button.name = "Invite Friends"
         
         if let node = button.component(ofType: NodeComponent.self)?.node {
-            node.name = "Invite Friends"
             node.position = CGPoint(x: frame.midX + size.width / 2, y: frame.maxY * 2)
             node.zPosition = 1
             
@@ -132,9 +162,9 @@ extension StartScene {
         let color = SKColor(red: 0.96, green: 0.49, blue: 0.00, alpha: 1.00)
         
         let button = Button(size: size, color: color)
+        button.name = "Remove Ads"
         
         if let node = button.component(ofType: NodeComponent.self)?.node {
-            node.name = "Remove Ads"
             node.position = CGPoint(x: frame.midX - size.width / 2, y: frame.maxY * 2)
             node.zPosition = 1
             
@@ -156,9 +186,9 @@ extension StartScene {
         let color = SKColor(red: 0.96, green: 0.49, blue: 0.00, alpha: 1.00)
         
         let button = Button(size: size, color: color)
+        button.name = "Restore Purchases"
         
         if let node = button.component(ofType: NodeComponent.self)?.node {
-            node.name = "Restore Purchases"
             node.position = CGPoint(x: frame.midX, y: frame.maxY * 2)
             node.zPosition = 1
             
@@ -195,6 +225,25 @@ extension StartScene {
         }
         
         entities.remove(entity)
+    }
+    
+}
+
+// MARK: - Touch Events
+
+extension StartScene {
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for touch in touches {
+            let location = touch.location(in: self)
+            let node = atPoint(location)
+            
+            if let button = node.entity as? Button {
+                if button.name == "Let’s Play" {
+                    playButtonPressed()
+                }
+            }
+        }
     }
     
 }
