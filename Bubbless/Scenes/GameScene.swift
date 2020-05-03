@@ -132,16 +132,16 @@ extension GameScene {
     }
     
     private func spawnBubble() {
-        let bubbleNumber = randomizeBubble()
-        let bubble = bubbles[bubbleNumber].copy() as! Bubble
+        let randomBubble = randomizeBubble()
+        let bubble = bubbles[randomBubble].copy() as! Bubble
         
         addEntity(bubble)
     }
     
     private func spawnBubbles() {
-        let wait = SKAction.wait(forDuration: 1, withRange: 1)
-        let spawn = SKAction.run { self.spawnBubble() }
-        let sequence = SKAction.sequence([wait, spawn])
+        let wait = SKAction.wait(forDuration: 0.5, withRange: 0.5)
+        let spawnBubble = SKAction.run { self.spawnBubble() }
+        let sequence = SKAction.sequence([wait, spawnBubble])
         
         self.run(.repeatForever(sequence))
     }
