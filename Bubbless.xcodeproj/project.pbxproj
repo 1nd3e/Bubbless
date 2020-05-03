@@ -22,6 +22,8 @@
 		780820F6245E1E3B00DE6722 /* ScoreLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780820F5245E1E3B00DE6722 /* ScoreLabel.swift */; };
 		780820F8245E1E8500DE6722 /* LabelComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780820F7245E1E8500DE6722 /* LabelComponent.swift */; };
 		780820FB245E21C700DE6722 /* SF-Pro-Display-Ultralight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 780820FA245E21C700DE6722 /* SF-Pro-Display-Ultralight.otf */; };
+		789E7462245F3B0300E9D5E6 /* ExtraScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 789E7461245F3B0300E9D5E6 /* ExtraScene.sks */; };
+		789E7464245F3B0E00E9D5E6 /* ExtraScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789E7463245F3B0E00E9D5E6 /* ExtraScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		780820F5245E1E3B00DE6722 /* ScoreLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreLabel.swift; sourceTree = "<group>"; };
 		780820F7245E1E8500DE6722 /* LabelComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelComponent.swift; sourceTree = "<group>"; };
 		780820FA245E21C700DE6722 /* SF-Pro-Display-Ultralight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Ultralight.otf"; sourceTree = "<group>"; };
+		789E7461245F3B0300E9D5E6 /* ExtraScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ExtraScene.sks; sourceTree = "<group>"; };
+		789E7463245F3B0E00E9D5E6 /* ExtraScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtraScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +122,8 @@
 			children = (
 				780820CC245DBDD300DE6722 /* GameScene.sks */,
 				780820D0245DBDD300DE6722 /* GameScene.swift */,
+				789E7461245F3B0300E9D5E6 /* ExtraScene.sks */,
+				789E7463245F3B0E00E9D5E6 /* ExtraScene.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -233,6 +239,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				780820D6245DBDD300DE6722 /* Main.storyboard in Resources */,
+				789E7462245F3B0300E9D5E6 /* ExtraScene.sks in Resources */,
 				780820CD245DBDD300DE6722 /* GameScene.sks in Resources */,
 				780820FB245E21C700DE6722 /* SF-Pro-Display-Ultralight.otf in Resources */,
 				780820D8245DBDD700DE6722 /* Assets.xcassets in Resources */,
@@ -251,6 +258,7 @@
 				780820F3245E0DF400DE6722 /* Array+Additions.swift in Sources */,
 				780820D3245DBDD300DE6722 /* GameViewController.swift in Sources */,
 				780820CB245DBDD300DE6722 /* AppDelegate.swift in Sources */,
+				789E7464245F3B0E00E9D5E6 /* ExtraScene.swift in Sources */,
 				780820EF245DC67F00DE6722 /* PhysicsBodyComponent.swift in Sources */,
 				780820F1245DC85C00DE6722 /* Bubble.swift in Sources */,
 				780820F8245E1E8500DE6722 /* LabelComponent.swift in Sources */,
