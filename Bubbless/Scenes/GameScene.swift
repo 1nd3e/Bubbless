@@ -183,26 +183,16 @@ extension GameScene {
         
         if bubbleEntities.count >= bubbleLimit {
             isPlaying = false
-            
-            let task = DispatchGroup()
              
             for bubble in bubbleEntities as! Set<Bubble> {
-                task.enter()
-                
                 bubble.select {
                     bubble.hide {
                         self.removeEntity(bubble)
-                        
-                        task.leave()
                     }
                 }
             }
             
-            task.notify(queue: .main) {
-                self.matchEnded()
-            }
-            
-            self.removeAllActions()
+            matchEnded()
         }
     }
     
@@ -215,7 +205,11 @@ extension GameScene {
                     sceneNode.score = score
                     sceneNode.lives = lives
                     
-                    self.view?.presentScene(sceneNode)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                        self.view?.presentScene(sceneNode)
+                    }
+                    
+                    self.removeAllActions()
                 }
             }
         } else {
@@ -226,7 +220,11 @@ extension GameScene {
                     let sceneTransition = SKTransition.fade(with: SKColor(red: 0.93, green: 0.93, blue: 0.93, alpha: 1.00), duration: 0.5)
                     sceneTransition.pausesOutgoingScene = false
                     
-                    self.view?.presentScene(sceneNode, transition: sceneTransition)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                        self.view?.presentScene(sceneNode, transition: sceneTransition)
+                    }
+                    
+                    self.removeAllActions()
                 }
             }
         }
