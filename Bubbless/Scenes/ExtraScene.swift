@@ -41,7 +41,7 @@ extension ExtraScene {
         // Размещаем кнопки
         configureMessageButton(withDelay: 0)
         configureDeclineButton(withDelay: 2)
-        configurePlayButton(withDelay: 4)
+        configureAdsButton(withDelay: 4)
     }
     
 }
@@ -82,7 +82,7 @@ extension ExtraScene {
         addEntity(scoreLabel)
     }
     
-    private func configurePlayButton(withDelay sec: TimeInterval) {
+    private func configureAdsButton(withDelay sec: TimeInterval) {
         let size = CGSize(width: frame.width / 2, height: frame.width / 2)
         let color = SKColor(red: 0.83, green: 0.18, blue: 0.18, alpha: 1.00)
         
@@ -106,7 +106,7 @@ extension ExtraScene {
         }
     }
     
-    private func playButtonPressed() {
+    private func adsButtonPressed() {
         let task = DispatchGroup()
         let buttons = entities.filter { $0 is Button }
         
@@ -240,7 +240,7 @@ extension ExtraScene {
             
             if let button = node.entity as? Button {
                 if button.name == "Watch Ads" {
-                    playButtonPressed()
+                    adsButtonPressed()
                 } else if button.name == "Decline" {
                     declineButtonPressed()
                 }
