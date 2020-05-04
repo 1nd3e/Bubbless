@@ -41,6 +41,7 @@ extension ExtraScene {
         // Размещаем кнопки
         configureMessageButton(withDelay: 0)
         configureDeclineButton(withDelay: 2)
+        configurePlayButton(withDelay: 4)
         configureAdsButton(withDelay: 4)
     }
     
@@ -82,7 +83,65 @@ extension ExtraScene {
         addEntity(scoreLabel)
     }
     
+    private func configurePlayButton(withDelay sec: TimeInterval) {
+        guard Defaults.shared.adsDisabled else { return }
+        
+        let size = CGSize(width: frame.width / 2, height: frame.width / 2)
+        let color = SKColor(red: 0.83, green: 0.18, blue: 0.18, alpha: 1.00)
+        
+        let button = Button(size: size, color: color)
+        button.name = "Keep Playing"
+        
+        if let node = button.component(ofType: NodeComponent.self)?.node {
+            node.position = CGPoint(x: frame.midX - size.width / 2, y: frame.maxY * 2)
+            node.zPosition = 1
+            
+            if let labelNode = button.component(ofType: LabelComponent.self)?.node {
+                labelNode.text = "Keep Playing"
+                labelNode.preferredMaxLayoutWidth = size.width - 56
+                labelNode.lineBreakMode = .byTruncatingTail
+                labelNode.numberOfLines = 0
+            }
+        }
+        
+        self.run(.wait(forDuration: sec)) {
+            self.addEntity(button)
+        }
+    }
+    
+    private func playButtonPressed() {
+        if let scene = GKScene(fileNamed: "GameScene") {
+            if let sceneNode = scene.rootNode as? GameScene {
+                sceneNode.size = self.size
+                
+                sceneNode.score = score
+                sceneNode.lives = lives - 1
+                
+                let task = DispatchGroup()
+                let buttons = entities.filter { $0 is Button }
+                
+                for button in buttons as! Set<Button> {
+                    task.enter()
+                    
+                    button.select {
+                        button.hide {
+                            self.removeEntity(button)
+                            
+                            task.leave()
+                        }
+                    }
+                }
+                
+                task.notify(queue: .main) {
+                    self.view?.presentScene(sceneNode)
+                }
+            }
+        }
+    }
+    
     private func configureAdsButton(withDelay sec: TimeInterval) {
+        guard Defaults.shared.adsDisabled == false else { return }
+        
         let size = CGSize(width: frame.width / 2, height: frame.width / 2)
         let color = SKColor(red: 0.83, green: 0.18, blue: 0.18, alpha: 1.00)
         
@@ -239,7 +298,9 @@ extension ExtraScene {
             let node = atPoint(location)
             
             if let button = node.entity as? Button {
-                if button.name == "Watch Ads" {
+                if button.name == "Keep Playing" {
+                    playButtonPressed()
+                } else if button.name == "Watch Ads" {
                     adsButtonPressed()
                 } else if button.name == "Decline" {
                     declineButtonPressed()

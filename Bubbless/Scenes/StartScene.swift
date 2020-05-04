@@ -11,6 +11,9 @@ import GameplayKit
 
 class StartScene: SKScene {
     
+    private var adsButton: Button?
+    private var restoreButton: Button?
+    
     private var entities = Set<GKEntity>()
     
 }
@@ -18,6 +21,10 @@ class StartScene: SKScene {
 // MARK: - Scene Events
 
 extension StartScene {
+    
+    override func sceneDidLoad() {
+        IAPService.shared.delegate = self
+    }
     
     override func didMove(to view: SKView) {
         // Настраиваем параметры сцены игры
@@ -162,51 +169,89 @@ extension StartScene {
     }
     
     private func configureAdsButton(withDelay sec: TimeInterval) {
+        guard Defaults.shared.adsDisabled == false else { return }
+        
         let size = CGSize(width: frame.width / 2, height: frame.width / 2)
         let color = SKColor(red: 0.96, green: 0.49, blue: 0.00, alpha: 1.00)
         
-        let button = Button(size: size, color: color)
-        button.name = "Remove Ads"
+        adsButton = Button(size: size, color: color)
         
-        if let node = button.component(ofType: NodeComponent.self)?.node {
-            node.position = CGPoint(x: frame.midX - size.width / 2, y: frame.maxY * 2)
-            node.zPosition = 1
+        if let button = adsButton {
+            button.name = "Remove Ads"
             
-            if let labelNode = button.component(ofType: LabelComponent.self)?.node {
-                labelNode.text = "Remove Ads"
-                labelNode.preferredMaxLayoutWidth = size.width - 56
-                labelNode.lineBreakMode = .byTruncatingTail
-                labelNode.numberOfLines = 0
+            if let node = button.component(ofType: NodeComponent.self)?.node {
+                node.position = CGPoint(x: frame.midX - size.width / 2, y: frame.maxY * 2)
+                node.zPosition = 1
+                
+                if let labelNode = button.component(ofType: LabelComponent.self)?.node {
+                    labelNode.text = "Remove Ads"
+                    labelNode.preferredMaxLayoutWidth = size.width - 56
+                    labelNode.lineBreakMode = .byTruncatingTail
+                    labelNode.numberOfLines = 0
+                }
             }
-        }
-        
-        self.run(.wait(forDuration: sec)) {
-            self.addEntity(button)
+            
+            self.run(.wait(forDuration: sec)) {
+                self.addEntity(button)
+            }
         }
     }
     
+    private func removeAdsButton() {
+        if let button = adsButton {
+            button.select {
+                button.hide {
+                    self.removeEntity(button)
+                }
+            }
+        }
+    }
+    
+    private func adsButtonPressed() {
+        IAPService.shared.removeAds()
+    }
+    
     private func configureRestoreButton(withDelay sec: TimeInterval) {
+        guard Defaults.shared.adsDisabled == false else { return }
+        
         let size = CGSize(width: frame.width / 2, height: frame.width / 2)
         let color = SKColor(red: 0.96, green: 0.49, blue: 0.00, alpha: 1.00)
         
-        let button = Button(size: size, color: color)
-        button.name = "Restore Purchases"
+        restoreButton = Button(size: size, color: color)
         
-        if let node = button.component(ofType: NodeComponent.self)?.node {
-            node.position = CGPoint(x: frame.midX, y: frame.maxY * 2)
-            node.zPosition = 1
+        if let button = restoreButton {
+            button.name = "Restore Purchases"
             
-            if let labelNode = button.component(ofType: LabelComponent.self)?.node {
-                labelNode.text = "Restore Purchases"
-                labelNode.preferredMaxLayoutWidth = size.width - 56
-                labelNode.lineBreakMode = .byTruncatingTail
-                labelNode.numberOfLines = 0
+            if let node = button.component(ofType: NodeComponent.self)?.node {
+                node.position = CGPoint(x: frame.midX, y: frame.maxY * 2)
+                node.zPosition = 1
+                
+                if let labelNode = button.component(ofType: LabelComponent.self)?.node {
+                    labelNode.text = "Restore Purchases"
+                    labelNode.preferredMaxLayoutWidth = size.width - 56
+                    labelNode.lineBreakMode = .byTruncatingTail
+                    labelNode.numberOfLines = 0
+                }
+            }
+            
+            self.run(.wait(forDuration: sec)) {
+                self.addEntity(button)
             }
         }
-        
-        self.run(.wait(forDuration: sec)) {
-            self.addEntity(button)
+    }
+    
+    private func removeRestoreButton() {
+        if let button = restoreButton {
+            button.select {
+                button.hide {
+                    self.removeEntity(button)
+                }
+            }
         }
+    }
+    
+    private func restoreButtonPressed() {
+        IAPService.shared.restorePurchases()
     }
     
 }
@@ -247,9 +292,26 @@ extension StartScene {
                     playButtonPressed()
                 } else if button.name == "Leaderboard" {
                     leaderboardButtonPressed()
+                } else if button.name == "Remove Ads" {
+                    adsButtonPressed()
+                } else if button.name == "Restore Purchases" {
+                    restoreButtonPressed()
                 }
             }
         }
+    }
+    
+}
+
+// MARK: - IAPServiceDelegate
+
+extension StartScene: IAPServiceDelegate {
+    
+    func adsDisabled() {
+        removeAdsButton()
+        removeRestoreButton()
+        
+        Defaults.shared.adsDisabled = true
     }
     
 }

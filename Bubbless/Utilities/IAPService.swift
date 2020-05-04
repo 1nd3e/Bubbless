@@ -10,8 +10,7 @@ import UIKit
 import StoreKit
 
 protocol IAPServiceDelegate {
-    func handlePurchased()
-    func handleRestored()
+    func adsDisabled()
 }
 
 class IAPService: NSObject {
@@ -65,9 +64,7 @@ extension IAPService: SKPaymentTransactionObserver {
                 SKPaymentQueue.default().finishTransaction(transaction)
                 
                 // Сообщаем делегату о завершении транзакции
-                delegate?.handlePurchased()
-                // Записываем в UserDefaults состояние транзакции
-                Defaults.shared.adsDisabled = true
+                delegate?.adsDisabled()
             case .failed:
                 SKPaymentQueue.default().finishTransaction(transaction)
                 
@@ -78,9 +75,7 @@ extension IAPService: SKPaymentTransactionObserver {
                 SKPaymentQueue.default().finishTransaction(transaction)
                 
                 // Сообщаем делегату о завершении восстановления покупок
-                delegate?.handleRestored()
-                // Записываем в UserDefaults состояние транзакции
-                Defaults.shared.adsDisabled = true
+                delegate?.adsDisabled()
             default:
                 break
             }
