@@ -18,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GameCenter.shared.authenticateLocalPlayer()
         IAPService.shared.addObserver()
         
+        Defaults.shared.applicationLaunches += 1
+        
         return true
     }
     

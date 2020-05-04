@@ -43,6 +43,9 @@ extension ExtraScene {
         configureDeclineButton(withDelay: 2)
         configurePlayButton(withDelay: 4)
         configureAdsButton(withDelay: 4)
+        
+        // Пробуем вызвать экран отзыва
+        SKReview.shared.requestReviewIfAppropriate()
     }
     
 }

@@ -17,12 +17,24 @@ class Defaults {
     // MARK: - Constants
     
     private let adsDisabledKey = "adsDisabledKey"
+    private let lastBundleVersionKey = "lastBundleVersionKey"
+    private let applicationLaunchesKey = "applicationLaunchesKey"
     
     // MARK: - Properties
     
     var adsDisabled: Bool {
         get { return   UserDefaults.standard.bool(forKey: adsDisabledKey) }
         set { UserDefaults.standard.set(newValue, forKey: adsDisabledKey) }
+    }
+    
+    var lastBundleVersion: String? {
+        get { return UserDefaults.standard.string(forKey: lastBundleVersionKey) }
+        set { UserDefaults.standard.set(newValue, forKey: lastBundleVersionKey) }
+    }
+    
+    var applicationLaunches: Int {
+        get { return UserDefaults.standard.integer(forKey: applicationLaunchesKey) }
+        set { UserDefaults.standard.set(newValue, forKey:  applicationLaunchesKey) }
     }
     
 }
