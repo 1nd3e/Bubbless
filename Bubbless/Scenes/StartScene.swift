@@ -74,8 +74,8 @@ extension StartScene {
             node.zPosition = 1
             
             if let labelNode = button.component(ofType: LabelComponent.self)?.node {
-                labelNode.text = "Let’s Play"
-                labelNode.preferredMaxLayoutWidth = size.width - 56
+                labelNode.text = NSLocalizedString("Let’s Play", comment: "Start a game")
+                labelNode.preferredMaxLayoutWidth = size.width - 32
                 labelNode.lineBreakMode = .byTruncatingTail
                 labelNode.numberOfLines = 0
             }
@@ -128,8 +128,8 @@ extension StartScene {
             node.zPosition = 1
             
             if let labelNode = button.component(ofType: LabelComponent.self)?.node {
-                labelNode.text = "Leaderboard"
-                labelNode.preferredMaxLayoutWidth = size.width - 56
+                labelNode.text = NSLocalizedString("Leaderboard", comment: "Present a leaderboard")
+                labelNode.preferredMaxLayoutWidth = size.width - 32
                 labelNode.lineBreakMode = .byTruncatingTail
                 labelNode.numberOfLines = 0
             }
@@ -156,8 +156,8 @@ extension StartScene {
             node.zPosition = 1
             
             if let labelNode = button.component(ofType: LabelComponent.self)?.node {
-                labelNode.text = "Rate Us"
-                labelNode.preferredMaxLayoutWidth = size.width - 56
+                labelNode.text = NSLocalizedString("Rate Us", comment: "Manually request a review")
+                labelNode.preferredMaxLayoutWidth = size.width - 32
                 labelNode.lineBreakMode = .byTruncatingTail
                 labelNode.numberOfLines = 0
             }
@@ -188,8 +188,8 @@ extension StartScene {
                 node.zPosition = 1
                 
                 if let labelNode = button.component(ofType: LabelComponent.self)?.node {
-                    labelNode.text = "Remove Ads"
-                    labelNode.preferredMaxLayoutWidth = size.width - 56
+                    labelNode.text = NSLocalizedString("Remove Ads", comment: "Request a purchase")
+                    labelNode.preferredMaxLayoutWidth = size.width - 32
                     labelNode.lineBreakMode = .byTruncatingTail
                     labelNode.numberOfLines = 0
                 }
@@ -231,8 +231,8 @@ extension StartScene {
                 node.zPosition = 1
                 
                 if let labelNode = button.component(ofType: LabelComponent.self)?.node {
-                    labelNode.text = "Restore Purchases"
-                    labelNode.preferredMaxLayoutWidth = size.width - 56
+                    labelNode.text = NSLocalizedString("Restore Purchases", comment: "Request to restore purchases")
+                    labelNode.preferredMaxLayoutWidth = size.width - 32
                     labelNode.lineBreakMode = .byTruncatingTail
                     labelNode.numberOfLines = 0
                 }

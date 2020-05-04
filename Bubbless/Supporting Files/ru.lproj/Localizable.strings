@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  Bubbless
+
+  Created by Vladislav Kulikov on 04.05.2020.
+  Copyright © 2020 Vladislav Kulikov. All rights reserved.
+*/
+
+"Let’s Play" = "Играть";
+"Leaderboard" = "Лидеры игры";
+"Rate Us" = "Оставить отзыв";
+"Remove Ads" = "Отключить рекламу";
+"Restore Purchases" = "Восстановить покупки";
+"Do you want an extra life?" = "Хотите получить доп. жизнь?";
+"Keep Playing" = "Продолжить игру";
+"Watch Ads" = "Смотреть рекламу";
+"Decline" = "Отказаться";

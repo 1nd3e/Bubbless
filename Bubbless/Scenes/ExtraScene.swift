@@ -100,8 +100,8 @@ extension ExtraScene {
             node.zPosition = 1
             
             if let labelNode = button.component(ofType: LabelComponent.self)?.node {
-                labelNode.text = "Keep Playing"
-                labelNode.preferredMaxLayoutWidth = size.width - 56
+                labelNode.text = NSLocalizedString("Keep Playing", comment: "Keep playing with an extra life")
+                labelNode.preferredMaxLayoutWidth = size.width - 32
                 labelNode.lineBreakMode = .byTruncatingTail
                 labelNode.numberOfLines = 0
             }
@@ -156,8 +156,8 @@ extension ExtraScene {
             node.zPosition = 1
             
             if let labelNode = button.component(ofType: LabelComponent.self)?.node {
-                labelNode.text = "Watch Ads"
-                labelNode.preferredMaxLayoutWidth = size.width - 56
+                labelNode.text = NSLocalizedString("Watch Ads", comment: "Watch ads to get an extra life")
+                labelNode.preferredMaxLayoutWidth = size.width - 32
                 labelNode.lineBreakMode = .byTruncatingTail
                 labelNode.numberOfLines = 0
             }
@@ -201,8 +201,8 @@ extension ExtraScene {
             node.zPosition = 1
             
             if let labelNode = button.component(ofType: LabelComponent.self)?.node {
-                labelNode.text = "Decline"
-                labelNode.preferredMaxLayoutWidth = size.width - 56
+                labelNode.text = NSLocalizedString("Decline", comment: "To give up an extra life")
+                labelNode.preferredMaxLayoutWidth = size.width - 32
                 labelNode.lineBreakMode = .byTruncatingTail
                 labelNode.numberOfLines = 0
             }
@@ -254,8 +254,8 @@ extension ExtraScene {
             node.zPosition = 1
             
             if let labelNode = button.component(ofType: LabelComponent.self)?.node {
-                labelNode.text = "How about an extra life?"
-                labelNode.preferredMaxLayoutWidth = size.width - 56
+                labelNode.text = NSLocalizedString("Do you want an extra life?", comment: "Message")
+                labelNode.preferredMaxLayoutWidth = size.width - 32
                 labelNode.lineBreakMode = .byTruncatingTail
                 labelNode.numberOfLines = 0
             }
