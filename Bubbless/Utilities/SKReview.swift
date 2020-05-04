@@ -17,7 +17,7 @@ class SKReview {
     // MARK: - Methods
     
     // Открывает в App Store секцию Write Review
-    func requestReview() {
+    func requestReviewManually() {
         if let url = URL(string: "https://itunes.apple.com/app/id1510547305?action=write-review") {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
