@@ -31,10 +31,12 @@ class AdMob: NSObject {
     
     // MARK: - Methods
     
+    // Инициализирует Google Mobile Ads SDK
     func start() {
         GADMobileAds.sharedInstance().start(completionHandler: nil)
     }
     
+    // Предварительно загружает рекламу за вознаграждение
     func loadRewardedAd() {
         rewardedAd = GADRewardedAd(adUnitID: "ca-app-pub-3940256099942544/1712485313")
         
@@ -45,6 +47,7 @@ class AdMob: NSObject {
         }
     }
     
+    // Показывает рекламу за вознаграждение
     func showRewardedAd() {
         if rewardedAd?.isReady == true {
             if let viewController = viewController {
@@ -59,10 +62,12 @@ class AdMob: NSObject {
 
 extension AdMob: GADRewardedAdDelegate {
     
+    // Фиксирует получение вознаграждения
     func rewardedAd(_ rewardedAd: GADRewardedAd, userDidEarn reward: GADAdReward) {
         userDidEarnReward = true
     }
     
+    // Сообщает делегату о завершении просмотра рекламы
     func rewardedAdDidDismiss(_ rewardedAd: GADRewardedAd) {
         if userDidEarnReward {
             delegate?.userDidEarnReward()

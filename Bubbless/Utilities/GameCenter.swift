@@ -24,6 +24,7 @@ class GameCenter: NSObject {
     
     // MARK: - Methods
     
+    // Выполняет аутентификацию пользователя
     func authenticateLocalPlayer() {
         guard localPlayer.isAuthenticated else {
             localPlayer.authenticateHandler = { (vc, error) in
@@ -36,6 +37,7 @@ class GameCenter: NSObject {
         }
     }
     
+    // Открывает экран Leaderboard в Game Center
     func presentLeaderboard() {
         if localPlayer.isAuthenticated {
             let vc = GKGameCenterViewController()
@@ -54,6 +56,7 @@ class GameCenter: NSObject {
         }
     }
     
+    // Отправляет очки в Leaderboard
     func submit(score value: Int) {
         guard localPlayer.isAuthenticated else { return }
         
@@ -69,6 +72,7 @@ class GameCenter: NSObject {
 
 extension GameCenter: GKGameCenterControllerDelegate {
     
+    // Анимировано закрывает Game Center
     func gameCenterViewControllerDidFinish(_ gameCenterViewController: GKGameCenterViewController) {
         gameCenterViewController.dismiss(animated: true, completion: nil)
     }

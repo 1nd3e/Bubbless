@@ -26,14 +26,17 @@ class IAPService: NSObject {
     
     // MARK: - Methods
     
+    // Создаёт наблюдатель за транзакциями в In-App Purchases
     func addObserver() {
         SKPaymentQueue.default().add(self)
     }
     
+    // Удаляет наблюдатель за транзакциями в In-App Purchases
     func removeObserver() {
         SKPaymentQueue.default().remove(self)
     }
     
+    // Отправляет запрос на покупку отключения рекламы
     func removeAds() {
         guard SKPaymentQueue.canMakePayments() else { return }
         
@@ -43,6 +46,7 @@ class IAPService: NSObject {
         SKPaymentQueue.default().add(payment)
     }
     
+    // Отправляет запрос на восстановление покупок
     func restorePurchases() {
         SKPaymentQueue.default().restoreCompletedTransactions()
     }
@@ -53,6 +57,7 @@ class IAPService: NSObject {
 
 extension IAPService: SKPaymentTransactionObserver {
     
+    // Обрабатывает состояния транзакций
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
         for transaction in transactions {
             switch transaction.transactionState {
