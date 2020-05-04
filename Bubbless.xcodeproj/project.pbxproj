@@ -68,6 +68,9 @@
 		786FE1282460D00700688C87 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		786FE1292460D00700688C87 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		786FE12A2460D00700688C87 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		786FE12B2460D4FD00688C87 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.strings; sourceTree = "<group>"; };
+		786FE12C2460D4FE00688C87 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		786FE12D2460D4FE00688C87 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		788E338B246059BF0007A3F7 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		788E338D246070D50007A3F7 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		788E338F24608DE30007A3F7 /* SKReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKReview.swift; sourceTree = "<group>"; };
@@ -298,6 +301,7 @@
 				ru,
 				"zh-Hans",
 				ja,
+				ko,
 			);
 			mainGroup = 780820BE245DBDD300DE6722;
 			productRefGroup = 780820C8245DBDD300DE6722 /* Products */;
@@ -406,6 +410,7 @@
 				786FE11C2460A60900688C87 /* ru */,
 				786FE1252460C6E100688C87 /* zh-Hans */,
 				786FE1282460D00700688C87 /* ja */,
+				786FE12B2460D4FD00688C87 /* ko */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -417,6 +422,7 @@
 				786FE11D2460A60900688C87 /* ru */,
 				786FE1262460C6E100688C87 /* zh-Hans */,
 				786FE1292460D00700688C87 /* ja */,
+				786FE12C2460D4FE00688C87 /* ko */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -428,6 +434,7 @@
 				786FE1242460A6E600688C87 /* en */,
 				786FE1272460C6E100688C87 /* zh-Hans */,
 				786FE12A2460D00700688C87 /* ja */,
+				786FE12D2460D4FE00688C87 /* ko */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
