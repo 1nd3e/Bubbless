@@ -6,6 +6,80 @@
 //  Copyright © 2020 Vladislav Kulikov. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import StoreKit
 
-class IAPService {}
+protocol IAPServiceDelegate {
+    func handlePurchased()
+    func handleRestored()
+}
+
+class IAPService: NSObject {
+    
+    // MARK: - Types
+    
+    static let shared = IAPService()
+    
+    // MARK: - Properties
+    
+    var delegate: IAPServiceDelegate?
+    
+    // MARK: - Methods
+    
+    func addObserver() {
+        SKPaymentQueue.default().add(self)
+    }
+    
+    func removeObserver() {
+        SKPaymentQueue.default().remove(self)
+    }
+    
+    func removeAds() {
+        guard SKPaymentQueue.canMakePayments() else { return }
+        
+        let payment = SKMutablePayment()
+        payment.productIdentifier = "ru.1nd3e.Bubbless.Ads"
+        
+        SKPaymentQueue.default().add(payment)
+    }
+    
+    func restorePurchases() {
+        SKPaymentQueue.default().restoreCompletedTransactions()
+    }
+    
+}
+
+// MARK: - SKPaymentTransactionObserver
+
+extension IAPService: SKPaymentTransactionObserver {
+    
+    func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+        for transaction in transactions {
+            switch transaction.transactionState {
+            case .purchased:
+                SKPaymentQueue.default().finishTransaction(transaction)
+                
+                // Сообщаем делегату о завершении транзакции
+                delegate?.handlePurchased()
+                // Записываем в UserDefaults состояние транзакции
+                Defaults.shared.adsDisabled = true
+            case .failed:
+                SKPaymentQueue.default().finishTransaction(transaction)
+                
+                if let error = transaction.error {
+                    print(error.localizedDescription)
+                }
+            case .restored:
+                SKPaymentQueue.default().finishTransaction(transaction)
+                
+                // Сообщаем делегату о завершении восстановления покупок
+                delegate?.handleRestored()
+                // Записываем в UserDefaults состояние транзакции
+                Defaults.shared.adsDisabled = true
+            default:
+                break
+            }
+        }
+    }
+    
+}
