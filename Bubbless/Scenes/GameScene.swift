@@ -21,6 +21,8 @@ class GameScene: SKScene {
     
     private var entities = Set<GKEntity>()
     
+    private var isPlaying = true
+    
 }
 
 // MARK: - Scene Events
@@ -180,6 +182,8 @@ extension GameScene {
         let bubbleEntities = entities.filter { $0 is Bubble }
         
         if bubbleEntities.count >= bubbleLimit {
+            isPlaying = false
+            
             let task = DispatchGroup()
              
             for bubble in bubbleEntities as! Set<Bubble> {
@@ -259,6 +263,8 @@ extension GameScene {
 extension GameScene {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard isPlaying else { return }
+        
         for touch in touches {
             let location = touch.location(in: self)
             let node = atPoint(location)
