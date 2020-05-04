@@ -133,6 +133,10 @@ extension StartScene {
         }
     }
     
+    private func leaderboardButtonPressed() {
+        GameCenter.shared.presentLeaderboard()
+    }
+    
     private func configureInviteButton(withDelay sec: TimeInterval) {
         let size = CGSize(width: frame.width / 2, height: frame.width / 2)
         let color = SKColor(red: 0.10, green: 0.46, blue: 0.82, alpha: 1.00)
@@ -241,6 +245,8 @@ extension StartScene {
             if let button = node.entity as? Button {
                 if button.name == "Let’s Play" {
                     playButtonPressed()
+                } else if button.name == "Leaderboard" {
+                    leaderboardButtonPressed()
                 }
             }
         }

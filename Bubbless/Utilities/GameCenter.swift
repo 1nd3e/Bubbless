@@ -6,6 +6,69 @@
 //  Copyright © 2020 Vladislav Kulikov. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import GameKit
 
-class GameCenter {}
+class GameCenter: NSObject {
+    
+    // MARK: - Types
+    
+    static let shared = GameCenter()
+    
+    // MARK: - Properties
+    
+    var viewController: UIViewController?
+    
+    private let localPlayer = GKLocalPlayer.local
+    private let leaderboardIdentifier = "ru.1nd3e.Bubbless.Scores"
+    
+    // MARK: - Methods
+    
+    func authenticateLocalPlayer() {
+        guard localPlayer.isAuthenticated else {
+            localPlayer.authenticateHandler = { (vc, error) in
+                if let vc = vc {
+                    self.viewController?.present(vc, animated: true, completion: nil)
+                }
+            }
+
+            return
+        }
+    }
+    
+    func presentLeaderboard() {
+        if localPlayer.isAuthenticated {
+            let vc = GKGameCenterViewController()
+            vc.gameCenterDelegate = self
+            
+            vc.viewState = .leaderboards
+            vc.leaderboardIdentifier = leaderboardIdentifier
+            
+            viewController?.present(vc, animated: true, completion: nil)
+        } else {
+            localPlayer.authenticateHandler = { (vc, error) in
+                if let vc = vc {
+                    self.viewController?.present(vc, animated: true, completion: nil)
+                }
+            }
+        }
+    }
+    
+    func submit(score value: Int) {
+        guard localPlayer.isAuthenticated else { return }
+        
+        let score = GKScore(leaderboardIdentifier: leaderboardIdentifier)
+        score.value = Int64(value)
+        
+        GKScore.report([score], withCompletionHandler: nil)
+    }
+    
+}
+
+extension GameCenter: GKGameCenterControllerDelegate {
+    
+    func gameCenterViewControllerDidFinish(_ gameCenterViewController: GKGameCenterViewController) {
+        gameCenterViewController.dismiss(animated: true, completion: nil)
+    }
+    
+}

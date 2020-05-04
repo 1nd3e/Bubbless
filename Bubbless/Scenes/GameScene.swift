@@ -226,6 +226,8 @@ extension GameScene {
                 }
             }
         }
+        
+        GameCenter.shared.submit(score: score)
     }
     
 }

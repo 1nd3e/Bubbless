@@ -16,6 +16,7 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         
         AdMob.shared.viewController = self
+        GameCenter.shared.viewController = self
         
         if let scene = GKScene(fileNamed: "StartScene") {
             if let sceneNode = scene.rootNode as? StartScene {
