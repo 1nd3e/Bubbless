@@ -62,6 +62,9 @@
 		786FE11D2460A60900688C87 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		786FE1212460A69400688C87 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		786FE1242460A6E600688C87 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		786FE1252460C6E100688C87 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		786FE1262460C6E100688C87 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		786FE1272460C6E100688C87 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		788E338B246059BF0007A3F7 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		788E338D246070D50007A3F7 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		788E338F24608DE30007A3F7 /* SKReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKReview.swift; sourceTree = "<group>"; };
@@ -290,6 +293,7 @@
 				en,
 				Base,
 				ru,
+				"zh-Hans",
 			);
 			mainGroup = 780820BE245DBDD300DE6722;
 			productRefGroup = 780820C8245DBDD300DE6722 /* Products */;
@@ -396,6 +400,7 @@
 			children = (
 				780820D5245DBDD300DE6722 /* Base */,
 				786FE11C2460A60900688C87 /* ru */,
+				786FE1252460C6E100688C87 /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -405,6 +410,7 @@
 			children = (
 				780820DA245DBDD700DE6722 /* Base */,
 				786FE11D2460A60900688C87 /* ru */,
+				786FE1262460C6E100688C87 /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -414,6 +420,7 @@
 			children = (
 				786FE1212460A69400688C87 /* ru */,
 				786FE1242460A6E600688C87 /* en */,
+				786FE1272460C6E100688C87 /* zh-Hans */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
