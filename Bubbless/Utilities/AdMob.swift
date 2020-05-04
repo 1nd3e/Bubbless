@@ -66,8 +66,6 @@ extension AdMob: GADRewardedAdDelegate {
         if userDidEarnReward {
             delegate?.userDidEarnReward()
         }
-        
-        loadRewardedAd()
     }
     
 }

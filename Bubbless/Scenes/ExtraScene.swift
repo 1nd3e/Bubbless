@@ -22,6 +22,15 @@ class ExtraScene: SKScene {
 
 extension ExtraScene {
     
+    override func sceneDidLoad() {
+        // Берём на себя ответственность за обработку событий показа рекламы
+        AdMob.shared.delegate = self
+        
+        // Предварительно загружаем рекламный ролик
+        // для получения дополнительной жизни
+        AdMob.shared.loadRewardedAd()
+    }
+    
     override func didMove(to view: SKView) {
         // Настраиваем параметры сцены игры
         addPhysicsEdges()
@@ -94,6 +103,27 @@ extension ExtraScene {
         
         self.run(.wait(forDuration: sec)) {
             self.addEntity(button)
+        }
+    }
+    
+    private func playButtonPressed() {
+        let task = DispatchGroup()
+        let buttons = entities.filter { $0 is Button }
+        
+        for button in buttons as! Set<Button> {
+            task.enter()
+            
+            button.select {
+                button.hide {
+                    self.removeEntity(button)
+                    
+                    task.leave()
+                }
+            }
+        }
+        
+        task.notify(queue: .main) {
+            AdMob.shared.showRewardedAd()
         }
     }
     
@@ -209,9 +239,28 @@ extension ExtraScene {
             let node = atPoint(location)
             
             if let button = node.entity as? Button {
-                if button.name == "Decline" {
+                if button.name == "Watch Ads" {
+                    playButtonPressed()
+                } else if button.name == "Decline" {
                     declineButtonPressed()
                 }
+            }
+        }
+    }
+    
+}
+
+extension ExtraScene: AdMobDelegate {
+    
+    func userDidEarnReward() {
+        if let scene = GKScene(fileNamed: "GameScene") {
+            if let sceneNode = scene.rootNode as? GameScene {
+                sceneNode.size = self.size
+                
+                sceneNode.score = score
+                sceneNode.lives = lives - 1
+                
+                self.view?.presentScene(sceneNode)
             }
         }
     }
