@@ -35,7 +35,7 @@ extension StartScene {
         configureLeaderboardButton(withDelay: 2)
         configurePlayButton(withDelay: 4)
         configureAdsButton(withDelay: 6)
-        configureInviteButton(withDelay: 8)
+        configureReviewButton(withDelay: 8)
     }
     
 }
@@ -144,19 +144,19 @@ extension StartScene {
         GameCenter.shared.presentLeaderboard()
     }
     
-    private func configureInviteButton(withDelay sec: TimeInterval) {
+    private func configureReviewButton(withDelay sec: TimeInterval) {
         let size = CGSize(width: frame.width / 2, height: frame.width / 2)
         let color = SKColor(red: 0.10, green: 0.46, blue: 0.82, alpha: 1.00)
         
         let button = Button(size: size, color: color)
-        button.name = "Invite Friends"
+        button.name = "Review"
         
         if let node = button.component(ofType: NodeComponent.self)?.node {
             node.position = CGPoint(x: frame.midX + size.width / 2, y: frame.maxY * 2)
             node.zPosition = 1
             
             if let labelNode = button.component(ofType: LabelComponent.self)?.node {
-                labelNode.text = "Invite Friends"
+                labelNode.text = "Rate Us"
                 labelNode.preferredMaxLayoutWidth = size.width - 56
                 labelNode.lineBreakMode = .byTruncatingTail
                 labelNode.numberOfLines = 0
@@ -166,6 +166,10 @@ extension StartScene {
         self.run(.wait(forDuration: sec)) {
             self.addEntity(button)
         }
+    }
+    
+    private func reviewButtonPressed() {
+        SKReview.shared.requestReviewManually()
     }
     
     private func configureAdsButton(withDelay sec: TimeInterval) {
@@ -292,6 +296,8 @@ extension StartScene {
                     playButtonPressed()
                 } else if button.name == "Leaderboard" {
                     leaderboardButtonPressed()
+                } else if button.name == "Review" {
+                    reviewButtonPressed()
                 } else if button.name == "Remove Ads" {
                     adsButtonPressed()
                 } else if button.name == "Restore Purchases" {
