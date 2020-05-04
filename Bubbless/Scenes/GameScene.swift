@@ -125,16 +125,11 @@ extension GameScene {
         }
     }
     
-    private func randomizeBubble() -> Int {
-        let randomSource = GKMersenneTwisterRandomSource()
-        let randomBubble = randomSource.nextInt(upperBound: bubbles.count)
-        
-        return randomBubble
-    }
-    
     private func spawnBubble() {
-        let randomBubble = randomizeBubble()
-        let bubble = bubbles[randomBubble].copy() as! Bubble
+        let randomSource = GKMersenneTwisterRandomSource()
+        
+        let bubbleNumber = randomSource.nextInt(upperBound: bubbles.count)
+        let bubble = bubbles[bubbleNumber].copy() as! Bubble
         
         addEntity(bubble)
     }
@@ -148,7 +143,7 @@ extension GameScene {
         self.run(.repeatForever(sequence))
     }
     
-    private func select(_ bubble: Bubble) {
+    private func selectBubble(_ bubble: Bubble) {
         selectedBubbles.insert(bubble)
         
         if selectedBubbles.count >= 3 {
@@ -268,7 +263,7 @@ extension GameScene {
             
             if let bubble = node.entity as? Bubble {
                 bubble.select {
-                    self.select(bubble)
+                    self.selectBubble(bubble)
                 }
             }
         }
