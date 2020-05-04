@@ -65,6 +65,8 @@ class GameCenter: NSObject {
     
 }
 
+// MARK: - GKGameCenterControllerDelegate
+
 extension GameCenter: GKGameCenterControllerDelegate {
     
     func gameCenterViewControllerDidFinish(_ gameCenterViewController: GKGameCenterViewController) {
