@@ -67,7 +67,7 @@ extension StartScene {
         let color = SKColor(red: 0.83, green: 0.18, blue: 0.18, alpha: 1.00)
         
         let button = Button(size: size, color: color)
-        button.name = "Let’s Play"
+        button.name = "Play"
         
         if let node = button.component(ofType: NodeComponent.self)?.node {
             node.position = CGPoint(x: frame.midX, y: frame.maxY * 2)
@@ -292,7 +292,7 @@ extension StartScene {
             let node = atPoint(location)
             
             if let button = node.entity as? Button {
-                if button.name == "Let’s Play" {
+                if button.name == "Play" {
                     playButtonPressed()
                 } else if button.name == "Leaderboard" {
                     leaderboardButtonPressed()
