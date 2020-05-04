@@ -11,6 +11,7 @@ import GoogleMobileAds
 
 protocol AdMobDelegate {
     func userDidEarnReward()
+    func rewardedAdDidDismiss()
 }
 
 class AdMob: NSObject {
@@ -65,6 +66,8 @@ extension AdMob: GADRewardedAdDelegate {
     func rewardedAdDidDismiss(_ rewardedAd: GADRewardedAd) {
         if userDidEarnReward {
             delegate?.userDidEarnReward()
+        } else {
+            delegate?.rewardedAdDidDismiss()
         }
     }
     

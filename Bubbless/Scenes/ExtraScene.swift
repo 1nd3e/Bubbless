@@ -265,4 +265,17 @@ extension ExtraScene: AdMobDelegate {
         }
     }
     
+    func rewardedAdDidDismiss() {
+        if let scene = GKScene(fileNamed: "StartScene") {
+            if let sceneNode = scene.rootNode as? StartScene {
+                sceneNode.size = self.size
+                
+                let sceneTransition = SKTransition.fade(with: SKColor(red: 0.93, green: 0.93, blue: 0.93, alpha: 1.00), duration: 0.5)
+                sceneTransition.pausesOutgoingScene = false
+                
+                self.view?.presentScene(sceneNode, transition: sceneTransition)
+            }
+        }
+    }
+    
 }
