@@ -92,6 +92,9 @@
 		786FE1402460E6EE00688C87 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/Main.strings"; sourceTree = "<group>"; };
 		786FE1412460E6EE00688C87 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		786FE1422460E6EE00688C87 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		786FE1432460EAB800688C87 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Main.strings"; sourceTree = "<group>"; };
+		786FE1442460EAB800688C87 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		786FE1452460EAB800688C87 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		788E338B246059BF0007A3F7 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		788E338D246070D50007A3F7 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		788E338F24608DE30007A3F7 /* SKReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKReview.swift; sourceTree = "<group>"; };
@@ -330,6 +333,7 @@
 				"fr-CA",
 				"es-419",
 				"pt-PT",
+				"pt-BR",
 			);
 			mainGroup = 780820BE245DBDD300DE6722;
 			productRefGroup = 780820C8245DBDD300DE6722 /* Products */;
@@ -446,6 +450,7 @@
 				786FE13A2460E61100688C87 /* fr-CA */,
 				786FE13D2460E6AD00688C87 /* es-419 */,
 				786FE1402460E6EE00688C87 /* pt-PT */,
+				786FE1432460EAB800688C87 /* pt-BR */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -465,6 +470,7 @@
 				786FE13B2460E61100688C87 /* fr-CA */,
 				786FE13E2460E6AD00688C87 /* es-419 */,
 				786FE1412460E6EE00688C87 /* pt-PT */,
+				786FE1442460EAB800688C87 /* pt-BR */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -484,6 +490,7 @@
 				786FE13C2460E61100688C87 /* fr-CA */,
 				786FE13F2460E6AD00688C87 /* es-419 */,
 				786FE1422460E6EE00688C87 /* pt-PT */,
+				786FE1452460EAB800688C87 /* pt-BR */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
