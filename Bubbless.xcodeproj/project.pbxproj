@@ -86,6 +86,9 @@
 		786FE13A2460E61100688C87 /* fr-CA */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "fr-CA"; path = "fr-CA.lproj/Main.strings"; sourceTree = "<group>"; };
 		786FE13B2460E61100688C87 /* fr-CA */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "fr-CA"; path = "fr-CA.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		786FE13C2460E61100688C87 /* fr-CA */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "fr-CA"; path = "fr-CA.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		786FE13D2460E6AD00688C87 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/Main.strings"; sourceTree = "<group>"; };
+		786FE13E2460E6AD00688C87 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		786FE13F2460E6AD00688C87 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		788E338B246059BF0007A3F7 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		788E338D246070D50007A3F7 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		788E338F24608DE30007A3F7 /* SKReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKReview.swift; sourceTree = "<group>"; };
@@ -322,6 +325,7 @@
 				es,
 				it,
 				"fr-CA",
+				"es-419",
 			);
 			mainGroup = 780820BE245DBDD300DE6722;
 			productRefGroup = 780820C8245DBDD300DE6722 /* Products */;
@@ -436,6 +440,7 @@
 				786FE1342460DFDA00688C87 /* es */,
 				786FE1372460E2E700688C87 /* it */,
 				786FE13A2460E61100688C87 /* fr-CA */,
+				786FE13D2460E6AD00688C87 /* es-419 */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -453,6 +458,7 @@
 				786FE1352460DFDA00688C87 /* es */,
 				786FE1382460E2E700688C87 /* it */,
 				786FE13B2460E61100688C87 /* fr-CA */,
+				786FE13E2460E6AD00688C87 /* es-419 */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -470,6 +476,7 @@
 				786FE1362460DFDA00688C87 /* es */,
 				786FE1392460E2E700688C87 /* it */,
 				786FE13C2460E61100688C87 /* fr-CA */,
+				786FE13F2460E6AD00688C87 /* es-419 */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
