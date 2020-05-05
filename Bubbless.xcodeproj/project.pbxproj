@@ -83,6 +83,9 @@
 		786FE1372460E2E700688C87 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Main.strings; sourceTree = "<group>"; };
 		786FE1382460E2E700688C87 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		786FE1392460E2E700688C87 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
+		786FE13A2460E61100688C87 /* fr-CA */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "fr-CA"; path = "fr-CA.lproj/Main.strings"; sourceTree = "<group>"; };
+		786FE13B2460E61100688C87 /* fr-CA */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "fr-CA"; path = "fr-CA.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		786FE13C2460E61100688C87 /* fr-CA */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "fr-CA"; path = "fr-CA.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		788E338B246059BF0007A3F7 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		788E338D246070D50007A3F7 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		788E338F24608DE30007A3F7 /* SKReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKReview.swift; sourceTree = "<group>"; };
@@ -318,6 +321,7 @@
 				fr,
 				es,
 				it,
+				"fr-CA",
 			);
 			mainGroup = 780820BE245DBDD300DE6722;
 			productRefGroup = 780820C8245DBDD300DE6722 /* Products */;
@@ -431,6 +435,7 @@
 				786FE1312460DCFD00688C87 /* fr */,
 				786FE1342460DFDA00688C87 /* es */,
 				786FE1372460E2E700688C87 /* it */,
+				786FE13A2460E61100688C87 /* fr-CA */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -447,6 +452,7 @@
 				786FE1322460DCFD00688C87 /* fr */,
 				786FE1352460DFDA00688C87 /* es */,
 				786FE1382460E2E700688C87 /* it */,
+				786FE13B2460E61100688C87 /* fr-CA */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -463,6 +469,7 @@
 				786FE1332460DCFD00688C87 /* fr */,
 				786FE1362460DFDA00688C87 /* es */,
 				786FE1392460E2E700688C87 /* it */,
+				786FE13C2460E61100688C87 /* fr-CA */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
