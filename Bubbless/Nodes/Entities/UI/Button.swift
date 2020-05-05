@@ -26,7 +26,7 @@ class Button: GKEntity {
         let shape = ShapeComponent(rectOf: size, cornerRadius: size.height / 2, color: color)
         addComponent(shape)
         
-        let label = LabelComponent(fontName: "SFProText-Regular", fontSize: 17, fontColor: SKColor(red: 1.00, green: 1.00, blue: 1.00, alpha: 1.00))
+        let label = LabelComponent(fontName: "SFProText-Regular", fontSize: 18, fontColor: SKColor(red: 1.00, green: 1.00, blue: 1.00, alpha: 1.00))
         addComponent(label)
         
         let physicsBody = PhysicsBodyComponent(physicsBody: SKPhysicsBody(circleOfRadius: size.height / 2))
