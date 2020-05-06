@@ -28,6 +28,8 @@ class GameViewController: UIViewController {
                 }
             }
         }
+        
+        AudioPlayer.shared.play(fileNamed: "background-music", ofType: ".wav")
     }
     
 }

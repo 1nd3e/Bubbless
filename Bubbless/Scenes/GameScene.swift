@@ -35,6 +35,7 @@ extension GameScene {
         
         // Подготавливаем элементы игры к работе
         loadBubbles()
+        prepareAudioPlayer()
         
         // Размещаем элементы окружения
         configureScoreLabel()
@@ -161,14 +162,33 @@ extension GameScene {
                     score += 1
                     scoreLabel.set(score)
                 }
+                
+                play(soundFileNamed: "success.wav")
             } else {
                 for bubble in selectedBubbles {
                     bubble.deselect()
                 }
+                
+                play(soundFileNamed: "fail.wav")
             }
             
             selectedBubbles.removeAll()
         }
+    }
+    
+}
+
+// MARK: - SFX Methods
+
+extension GameScene {
+    
+    private func play(soundFileNamed soundFile: String) {
+        let playSoundFileNamed = SKAction.playSoundFileNamed(soundFile, waitForCompletion: false)
+        run(playSoundFileNamed)
+    }
+    
+    private func prepareAudioPlayer() {
+        play(soundFileNamed: "silence.wav")
     }
     
 }
@@ -183,7 +203,7 @@ extension GameScene {
         
         if bubbleEntities.count >= bubbleLimit {
             isPlaying = false
-             
+            
             for bubble in bubbleEntities as! Set<Bubble> {
                 bubble.select {
                     bubble.hide {
@@ -211,6 +231,8 @@ extension GameScene {
                     
                     self.removeAllActions()
                 }
+                
+                play(soundFileNamed: "complete.wav")
             }
         } else {
             if let scene = GKScene(fileNamed: "StartScene") {
@@ -226,6 +248,8 @@ extension GameScene {
                     
                     self.removeAllActions()
                 }
+                
+                play(soundFileNamed: "complete.wav")
             }
         }
         

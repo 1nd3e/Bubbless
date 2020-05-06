@@ -24,6 +24,12 @@
 		780820F8245E1E8500DE6722 /* LabelComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780820F7245E1E8500DE6722 /* LabelComponent.swift */; };
 		780820FB245E21C700DE6722 /* SF-Pro-Display-Ultralight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 780820FA245E21C700DE6722 /* SF-Pro-Display-Ultralight.otf */; };
 		786FE1202460A69400688C87 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 786FE1222460A69400688C87 /* Localizable.strings */; };
+		787C9D5924634CF900F0A897 /* background-music.wav in Resources */ = {isa = PBXBuildFile; fileRef = 787C9D5624634CF900F0A897 /* background-music.wav */; };
+		787C9D5D24634EAC00F0A897 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787C9D5C24634EAC00F0A897 /* AudioPlayer.swift */; };
+		787C9D672463625900F0A897 /* fail.wav in Resources */ = {isa = PBXBuildFile; fileRef = 787C9D642463625900F0A897 /* fail.wav */; };
+		787C9D682463625900F0A897 /* success.wav in Resources */ = {isa = PBXBuildFile; fileRef = 787C9D652463625900F0A897 /* success.wav */; };
+		787C9D692463625900F0A897 /* complete.wav in Resources */ = {isa = PBXBuildFile; fileRef = 787C9D662463625900F0A897 /* complete.wav */; };
+		787C9D6B2463629A00F0A897 /* silence.wav in Resources */ = {isa = PBXBuildFile; fileRef = 787C9D6A2463629A00F0A897 /* silence.wav */; };
 		788E338C246059BF0007A3F7 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 788E338B246059BF0007A3F7 /* StoreKit.framework */; };
 		788E338E246070D50007A3F7 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788E338D246070D50007A3F7 /* Defaults.swift */; };
 		788E339024608DE30007A3F7 /* SKReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788E338F24608DE30007A3F7 /* SKReview.swift */; };
@@ -95,6 +101,12 @@
 		786FE1432460EAB800688C87 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Main.strings"; sourceTree = "<group>"; };
 		786FE1442460EAB800688C87 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		786FE1452460EAB800688C87 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		787C9D5624634CF900F0A897 /* background-music.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "background-music.wav"; sourceTree = "<group>"; };
+		787C9D5C24634EAC00F0A897 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
+		787C9D642463625900F0A897 /* fail.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = fail.wav; sourceTree = "<group>"; };
+		787C9D652463625900F0A897 /* success.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = success.wav; sourceTree = "<group>"; };
+		787C9D662463625900F0A897 /* complete.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = complete.wav; sourceTree = "<group>"; };
+		787C9D6A2463629A00F0A897 /* silence.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = silence.wav; sourceTree = "<group>"; };
 		788E338B246059BF0007A3F7 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		788E338D246070D50007A3F7 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		788E338F24608DE30007A3F7 /* SKReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKReview.swift; sourceTree = "<group>"; };
@@ -223,6 +235,7 @@
 			children = (
 				789E746D245F8B3A00E9D5E6 /* AdMob.swift */,
 				789E746F245F8B4400E9D5E6 /* GameCenter.swift */,
+				787C9D5C24634EAC00F0A897 /* AudioPlayer.swift */,
 				789E7471245F8B4B00E9D5E6 /* IAPService.swift */,
 				788E338F24608DE30007A3F7 /* SKReview.swift */,
 				788E338D246070D50007A3F7 /* Defaults.swift */,
@@ -241,6 +254,7 @@
 		780820E9245DBEBB00DE6722 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				78AB042E24621076000B39A0 /* SFX */,
 				780820F9245E21BB00DE6722 /* Fonts */,
 				780820D4245DBDD300DE6722 /* Main.storyboard */,
 				780820D7245DBDD700DE6722 /* Assets.xcassets */,
@@ -267,6 +281,18 @@
 				780820FA245E21C700DE6722 /* SF-Pro-Display-Ultralight.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		78AB042E24621076000B39A0 /* SFX */ = {
+			isa = PBXGroup;
+			children = (
+				787C9D6A2463629A00F0A897 /* silence.wav */,
+				787C9D652463625900F0A897 /* success.wav */,
+				787C9D642463625900F0A897 /* fail.wav */,
+				787C9D662463625900F0A897 /* complete.wav */,
+				787C9D5624634CF900F0A897 /* background-music.wav */,
+			);
+			path = SFX;
 			sourceTree = "<group>";
 		};
 		B2ADBB5B405D596CA8C49C97 /* Pods */ = {
@@ -354,9 +380,14 @@
 				789E746A245F575600E9D5E6 /* StartScene.sks in Resources */,
 				789E7462245F3B0300E9D5E6 /* ExtraScene.sks in Resources */,
 				780820CD245DBDD300DE6722 /* GameScene.sks in Resources */,
+				787C9D692463625900F0A897 /* complete.wav in Resources */,
+				787C9D682463625900F0A897 /* success.wav in Resources */,
 				786FE1202460A69400688C87 /* Localizable.strings in Resources */,
+				787C9D6B2463629A00F0A897 /* silence.wav in Resources */,
 				780820FB245E21C700DE6722 /* SF-Pro-Display-Ultralight.otf in Resources */,
+				787C9D5924634CF900F0A897 /* background-music.wav in Resources */,
 				780820D8245DBDD700DE6722 /* Assets.xcassets in Resources */,
+				787C9D672463625900F0A897 /* fail.wav in Resources */,
 				780820DB245DBDD700DE6722 /* LaunchScreen.storyboard in Resources */,
 				789E7468245F453D00E9D5E6 /* SF-Pro-Text-Regular.otf in Resources */,
 			);
@@ -423,6 +454,7 @@
 				789E7470245F8B4400E9D5E6 /* GameCenter.swift in Sources */,
 				789E7466245F44A200E9D5E6 /* Button.swift in Sources */,
 				788E338E246070D50007A3F7 /* Defaults.swift in Sources */,
+				787C9D5D24634EAC00F0A897 /* AudioPlayer.swift in Sources */,
 				789E746C245F576600E9D5E6 /* StartScene.swift in Sources */,
 				788E339024608DE30007A3F7 /* SKReview.swift in Sources */,
 				780820F8245E1E8500DE6722 /* LabelComponent.swift in Sources */,
