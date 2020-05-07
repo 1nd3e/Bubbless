@@ -54,7 +54,7 @@ class AdMob: NSObject {
                 rewardedAd?.present(fromRootViewController: viewController, delegate: self)
             }
             
-            AudioPlayer.shared.player?.setVolume(0.0, fadeDuration: 0.75)
+            AudioPlayer.shared.player?.setVolume(0.0, fadeDuration: 1.0)
         }
     }
     
@@ -77,7 +77,7 @@ extension AdMob: GADRewardedAdDelegate {
             delegate?.rewardedAdDidDismiss()
         }
         
-        AudioPlayer.shared.player?.setVolume(1.0, fadeDuration: 0.75)
+        AudioPlayer.shared.player?.setVolume(0.8, fadeDuration: 1.0)
     }
     
 }

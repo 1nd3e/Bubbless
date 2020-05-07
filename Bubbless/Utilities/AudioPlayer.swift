@@ -27,7 +27,7 @@ class AudioPlayer {
             do {
                 player = try AVAudioPlayer(contentsOf: url)
                 player?.numberOfLoops = -1
-                player?.volume = 1.0
+                player?.volume = 0.8
                 
                 player?.prepareToPlay()
                 player?.play()
