@@ -55,6 +55,8 @@ class AdMob: NSObject {
             }
             
             AudioPlayer.shared.player?.setVolume(0.0, fadeDuration: 1.0)
+        } else {
+            delegate?.rewardedAdDidDismiss()
         }
     }
     
