@@ -651,6 +651,7 @@
 			baseConfigurationReference = 0BB9C3413CF8DDBA86405EE7 /* Pods-Bubbless.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5A2X6KMTCZ;
 				INFOPLIST_FILE = "$(SRCROOT)/Bubbless/Supporting Files/Info.plist";
@@ -661,6 +662,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ru.1nd3e.Bubbless;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -671,6 +673,7 @@
 			baseConfigurationReference = 9F494D0C4E94EAE20C7F3D68 /* Pods-Bubbless.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5A2X6KMTCZ;
 				INFOPLIST_FILE = "$(SRCROOT)/Bubbless/Supporting Files/Info.plist";
@@ -681,6 +684,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ru.1nd3e.Bubbless;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
