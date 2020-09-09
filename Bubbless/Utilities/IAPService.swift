@@ -9,7 +9,7 @@
 import UIKit
 import StoreKit
 
-protocol IAPServiceDelegate {
+protocol IAPServiceDelegate: class {
     func adsDisabled()
 }
 
@@ -21,7 +21,7 @@ class IAPService: NSObject {
     
     // MARK: - Properties
     
-    var delegate: IAPServiceDelegate?
+    weak var delegate: IAPServiceDelegate?
     
     // MARK: - Methods
     
@@ -67,7 +67,7 @@ extension IAPService: SKPaymentTransactionObserver {
                 SKPaymentQueue.default().finishTransaction(transaction)
                 
                 if let error = transaction.error {
-                    print(error.localizedDescription)
+                    print("Payment transaction failed: \(error.localizedDescription).")
                 }
             case .restored:
                 SKPaymentQueue.default().finishTransaction(transaction)

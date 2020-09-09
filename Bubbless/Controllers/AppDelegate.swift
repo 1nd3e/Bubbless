@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GameCenter.shared.authenticateLocalPlayer()
         IAPService.shared.addObserver()
         
+        // Count the application launches for requesting a review.
         Defaults.shared.applicationLaunches += 1
         
         return true

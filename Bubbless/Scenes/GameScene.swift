@@ -11,8 +11,12 @@ import GameplayKit
 
 class GameScene: SKScene {
     
+    // MARK: - Public Properties
+    
     var score = 0
     var lives = 1
+    
+    // MARK: - Private Properties
     
     private var scoreLabel: ScoreLabel!
     
@@ -23,11 +27,8 @@ class GameScene: SKScene {
     
     private var isPlaying = true
     
-}
-
-// MARK: - Scene Events
-
-extension GameScene {
+    
+    // MARK: - Scene Events
     
     override func didMove(to view: SKView) {
         // Configure scene.
@@ -41,7 +42,7 @@ extension GameScene {
         configureScoreLabel()
         
         // Start the game.
-        spawnBubbles()
+        startSpawning()
     }
     
 }
@@ -137,10 +138,10 @@ extension GameScene {
         addEntity(bubble)
     }
     
-    private func spawnBubbles() {
+    private func startSpawning() {
         let wait = SKAction.wait(forDuration: 0.5, withRange: 0.5)
-        let spawnBubble = SKAction.run { self.spawnBubble() }
-        let trackMatch = SKAction.run { self.trackMatch() }
+        let spawnBubble = SKAction.run { [weak self] in self?.spawnBubble() }
+        let trackMatch = SKAction.run  { [weak self] in self?.trackMatch() }
         let sequence = SKAction.sequence([wait, spawnBubble, trackMatch])
         
         self.run(.repeatForever(sequence))
@@ -155,8 +156,8 @@ extension GameScene {
             
             if bubbleColors.count == 1 {
                 for bubble in selectedBubbles {
-                    bubble.hide {
-                        self.removeEntity(bubble)
+                    bubble.hide { [weak self] in
+                        self?.removeEntity(bubble)
                     }
                     
                     score += 1
@@ -206,8 +207,8 @@ extension GameScene {
             
             for bubble in bubbleEntities as! Set<Bubble> {
                 bubble.select {
-                    bubble.hide {
-                        self.removeEntity(bubble)
+                    bubble.hide { [weak self] in
+                        self?.removeEntity(bubble)
                     }
                 }
             }
@@ -225,8 +226,8 @@ extension GameScene {
                     sceneNode.score = score
                     sceneNode.lives = lives
                     
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                        self.view?.presentScene(sceneNode)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { [weak self] in
+                        self?.view?.presentScene(sceneNode)
                     }
                     
                     self.removeAllActions()
@@ -242,8 +243,8 @@ extension GameScene {
                     let sceneTransition = SKTransition.fade(with: SKColor(red: 0.93, green: 0.93, blue: 0.93, alpha: 1.00), duration: 0.5)
                     sceneTransition.pausesOutgoingScene = false
                     
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-                        self.view?.presentScene(sceneNode, transition: sceneTransition)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) { [weak self] in
+                        self?.view?.presentScene(sceneNode, transition: sceneTransition)
                     }
                     
                     self.removeAllActions()
@@ -292,8 +293,8 @@ extension GameScene {
             let node = atPoint(location)
             
             if let bubble = node.entity as? Bubble {
-                bubble.select {
-                    self.selectBubble(bubble)
+                bubble.select { [weak self] in
+                    self?.selectBubble(bubble)
                 }
             }
         }

@@ -9,7 +9,7 @@
 import UIKit
 import GoogleMobileAds
 
-protocol AdMobDelegate {
+protocol AdMobDelegate: class {
     func userDidEarnReward()
     func rewardedAdDidDismiss()
 }
@@ -20,12 +20,15 @@ class AdMob: NSObject {
     
     static let shared = AdMob()
     
-    // MARK: - Properties
+    // MARK: - Public Properties
     
-    var delegate: AdMobDelegate?
-    var viewController: UIViewController?
+    weak var delegate: AdMobDelegate?
+    weak var viewController: UIViewController?
+    
+    // MARK: - Private Properties
     
     private var rewardedAd: GADRewardedAd?
+    private var rewardedAdUnitID = "ca-app-pub-3918999064618425/2456204690"
     
     private var userDidEarnReward = false
     
@@ -33,12 +36,12 @@ class AdMob: NSObject {
     
     // Initialize Google Mobile Ads SDK.
     func start() {
-        GADMobileAds.sharedInstance().start(completionHandler: nil)
+        GADMobileAds.sharedInstance().start()
     }
     
     // Preloads a rewarded ad video.
     func loadRewardedAd() {
-        rewardedAd = GADRewardedAd(adUnitID: "ca-app-pub-3918999064618425/2456204690")
+        rewardedAd = GADRewardedAd(adUnitID: rewardedAdUnitID)
         
         rewardedAd?.load(GADRequest()) { error in
             if let error = error {

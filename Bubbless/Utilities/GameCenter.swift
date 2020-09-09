@@ -15,9 +15,11 @@ class GameCenter: NSObject {
     
     static let shared = GameCenter()
     
-    // MARK: - Properties
+    // MARK: - Public Properties
     
-    var viewController: UIViewController?
+    weak var viewController: UIViewController?
+    
+    // MARK: - Private Properties
     
     private let localPlayer = GKLocalPlayer.local
     private let leaderboardIdentifier = "ru.1nd3e.Bubbless.Scores"
@@ -27,33 +29,29 @@ class GameCenter: NSObject {
     // Authenticate user.
     func authenticateLocalPlayer() {
         guard localPlayer.isAuthenticated else {
-            localPlayer.authenticateHandler = { (vc, error) in
+            localPlayer.authenticateHandler = { [weak self] vc, error in
                 if let vc = vc {
-                    self.viewController?.present(vc, animated: true, completion: nil)
+                    self?.viewController?.present(vc, animated: true, completion: nil)
+                } else if let error = error {
+                    print("Unable authenticate the player: \(error.localizedDescription).")
                 }
             }
-
+            
             return
         }
     }
     
     // Presents a leaderboard screen in Game Center.
     func presentLeaderboard() {
-        if localPlayer.isAuthenticated {
-            let vc = GKGameCenterViewController()
-            vc.gameCenterDelegate = self
-            
-            vc.viewState = .leaderboards
-            vc.leaderboardIdentifier = leaderboardIdentifier
-            
-            viewController?.present(vc, animated: true, completion: nil)
-        } else {
-            localPlayer.authenticateHandler = { (vc, error) in
-                if let vc = vc {
-                    self.viewController?.present(vc, animated: true, completion: nil)
-                }
-            }
-        }
+        guard localPlayer.isAuthenticated else { return }
+        
+        let vc = GKGameCenterViewController()
+        vc.gameCenterDelegate = self
+        
+        vc.viewState = .leaderboards
+        vc.leaderboardIdentifier = leaderboardIdentifier
+        
+        viewController?.present(vc, animated: true, completion: nil)
     }
     
     // Submits some points to leaderboard.
@@ -74,7 +72,7 @@ extension GameCenter: GKGameCenterControllerDelegate {
     
     // Animated closes Game Center.
     func gameCenterViewControllerDidFinish(_ gameCenterViewController: GKGameCenterViewController) {
-        gameCenterViewController.dismiss(animated: true, completion: nil)
+        gameCenterViewController.dismiss(animated: true)
     }
     
 }

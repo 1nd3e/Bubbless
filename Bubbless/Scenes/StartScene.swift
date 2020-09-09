@@ -11,16 +11,14 @@ import GameplayKit
 
 class StartScene: SKScene {
     
+    // MARK: - Properties
+    
     private var adsButton: Button?
     private var restoreButton: Button?
     
     private var entities = Set<GKEntity>()
     
-}
-
-// MARK: - Scene Events
-
-extension StartScene {
+    // MARK: - Scene Events
     
     override func sceneDidLoad() {
         IAPService.shared.delegate = self
@@ -81,8 +79,8 @@ extension StartScene {
             }
         }
         
-        self.run(.wait(forDuration: sec)) {
-            self.addEntity(button)
+        self.run(.wait(forDuration: sec)) { [weak self] in
+            self?.addEntity(button)
         }
     }
     
@@ -98,19 +96,19 @@ extension StartScene {
                     task.enter()
                     
                     button.select {
-                        button.hide {
-                            self.removeEntity(button)
+                        button.hide { [weak self] in
+                            self?.removeEntity(button)
                             
                             task.leave()
                         }
                     }
                 }
                 
-                task.notify(queue: .main) {
+                task.notify(queue: .main) { [weak self] in
                     let sceneTransition = SKTransition.fade(with: SKColor(red: 0.93, green: 0.93, blue: 0.93, alpha: 1.00), duration: 0.5)
                     sceneTransition.pausesOutgoingScene = false
                     
-                    self.view?.presentScene(sceneNode, transition: sceneTransition)
+                    self?.view?.presentScene(sceneNode, transition: sceneTransition)
                 }
             }
         }
@@ -135,8 +133,8 @@ extension StartScene {
             }
         }
         
-        self.run(.wait(forDuration: sec)) {
-            self.addEntity(button)
+        self.run(.wait(forDuration: sec)) { [weak self] in
+            self?.addEntity(button)
         }
     }
     
@@ -163,8 +161,8 @@ extension StartScene {
             }
         }
         
-        self.run(.wait(forDuration: sec)) {
-            self.addEntity(button)
+        self.run(.wait(forDuration: sec)) { [weak self] in
+            self?.addEntity(button)
         }
     }
     
@@ -195,8 +193,8 @@ extension StartScene {
                 }
             }
             
-            self.run(.wait(forDuration: sec)) {
-                self.addEntity(button)
+            self.run(.wait(forDuration: sec)) { [weak self] in
+                self?.addEntity(button)
             }
         }
     }
@@ -204,8 +202,8 @@ extension StartScene {
     private func removeAdsButton() {
         if let button = adsButton {
             button.select {
-                button.hide {
-                    self.removeEntity(button)
+                button.hide { [weak self] in
+                    self?.removeEntity(button)
                 }
             }
         }
@@ -238,8 +236,8 @@ extension StartScene {
                 }
             }
             
-            self.run(.wait(forDuration: sec)) {
-                self.addEntity(button)
+            self.run(.wait(forDuration: sec)) { [weak self] in
+                self?.addEntity(button)
             }
         }
     }
@@ -247,8 +245,8 @@ extension StartScene {
     private func removeRestoreButton() {
         if let button = restoreButton {
             button.select {
-                button.hide {
-                    self.removeEntity(button)
+                button.hide { [weak self] in
+                    self?.removeEntity(button)
                 }
             }
         }

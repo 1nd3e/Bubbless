@@ -11,16 +11,16 @@ import GameplayKit
 
 class ExtraScene: SKScene {
     
+    // MARK: - Public Properties
+    
     var score = 0
     var lives = 0
     
+    // MARK: - Private Properties
+    
     private var entities = Set<GKEntity>()
     
-}
-
-// MARK: - Scene Events
-
-extension ExtraScene {
+    // MARK: - Scene Events
     
     override func sceneDidLoad() {
         // Take responsibility for handling advertising events.
@@ -103,8 +103,8 @@ extension ExtraScene {
             }
         }
         
-        self.run(.wait(forDuration: sec)) {
-            self.addEntity(button)
+        self.run(.wait(forDuration: sec)) { [weak self] in
+            self?.addEntity(button)
         }
     }
     
@@ -123,16 +123,16 @@ extension ExtraScene {
                     task.enter()
                     
                     button.select {
-                        button.hide {
-                            self.removeEntity(button)
+                        button.hide { [weak self] in
+                            self?.removeEntity(button)
                             
                             task.leave()
                         }
                     }
                 }
                 
-                task.notify(queue: .main) {
-                    self.view?.presentScene(sceneNode)
+                task.notify(queue: .main) { [weak self] in
+                    self?.view?.presentScene(sceneNode)
                 }
             }
         }
@@ -159,8 +159,8 @@ extension ExtraScene {
             }
         }
         
-        self.run(.wait(forDuration: sec)) {
-            self.addEntity(button)
+        self.run(.wait(forDuration: sec)) { [weak self] in
+            self?.addEntity(button)
         }
     }
     
@@ -172,8 +172,8 @@ extension ExtraScene {
             task.enter()
             
             button.select {
-                button.hide {
-                    self.removeEntity(button)
+                button.hide { [weak self] in
+                    self?.removeEntity(button)
                     
                     task.leave()
                 }
@@ -204,8 +204,8 @@ extension ExtraScene {
             }
         }
         
-        self.run(.wait(forDuration: sec)) {
-            self.addEntity(button)
+        self.run(.wait(forDuration: sec)) { [weak self] in
+            self?.addEntity(button)
         }
     }
     
@@ -221,19 +221,19 @@ extension ExtraScene {
                     task.enter()
                     
                     button.select {
-                        button.hide {
-                            self.removeEntity(button)
+                        button.hide { [weak self] in
+                            self?.removeEntity(button)
                             
                             task.leave()
                         }
                     }
                 }
                 
-                task.notify(queue: .main) {
+                task.notify(queue: .main) { [weak self] in
                     let sceneTransition = SKTransition.fade(with: SKColor(red: 0.93, green: 0.93, blue: 0.93, alpha: 1.00), duration: 0.5)
                     sceneTransition.pausesOutgoingScene = false
                     
-                    self.view?.presentScene(sceneNode, transition: sceneTransition)
+                    self?.view?.presentScene(sceneNode, transition: sceneTransition)
                 }
             }
         }
@@ -257,8 +257,8 @@ extension ExtraScene {
             }
         }
         
-        self.run(.wait(forDuration: sec)) {
-            self.addEntity(button)
+        self.run(.wait(forDuration: sec)) { [weak self] in
+            self?.addEntity(button)
         }
     }
     
