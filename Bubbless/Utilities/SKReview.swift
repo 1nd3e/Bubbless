@@ -16,14 +16,14 @@ class SKReview {
     
     // MARK: - Methods
     
-    // Открывает в App Store секцию Write Review
+    // Opens a review section in the App Store.
     func requestReviewManually() {
         if let url = URL(string: "https://itunes.apple.com/app/id1510547305?action=write-review") {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
     }
     
-    // Запрашивает отзыв
+    // Request a review.
     func requestReviewIfAppropriate() {
         let bundleVersionKey = kCFBundleVersionKey as String
         let bundleVersion = Bundle.main.object(forInfoDictionaryKey: bundleVersionKey) as? String

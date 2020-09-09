@@ -23,28 +23,24 @@ class ExtraScene: SKScene {
 extension ExtraScene {
     
     override func sceneDidLoad() {
-        // Берём на себя ответственность за обработку событий показа рекламы
+        // Take responsibility for handling advertising events.
         AdMob.shared.delegate = self
-        
-        // Предварительно загружаем рекламный ролик
-        // для получения дополнительной жизни
+        // Preload an ad video for getting an extra life.
         AdMob.shared.loadRewardedAd()
     }
     
     override func didMove(to view: SKView) {
-        // Настраиваем параметры сцены игры
+        // Configure scene.
         addPhysicsEdges()
         
-        // Размещаем элементы окружения
+        // Configure nodes.
         configureScoreLabel()
-        
-        // Размещаем кнопки
         configureMessageButton(withDelay: 0)
         configureDeclineButton(withDelay: 2)
         configurePlayButton(withDelay: 4)
         configureAdsButton(withDelay: 4)
         
-        // Пробуем вызвать экран отзыва
+        // Trying to get a review from user.
         SKReview.shared.requestReviewIfAppropriate()
     }
     

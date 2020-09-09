@@ -25,17 +25,17 @@ class IAPService: NSObject {
     
     // MARK: - Methods
     
-    // Создаёт наблюдатель за транзакциями в In-App Purchases
+    // Adds an observer for transactions in In-App Purchases.
     func addObserver() {
         SKPaymentQueue.default().add(self)
     }
     
-    // Удаляет наблюдатель за транзакциями в In-App Purchases
+    // Removes an observer for transactions in In-App Purchases.
     func removeObserver() {
         SKPaymentQueue.default().remove(self)
     }
     
-    // Отправляет запрос на покупку отключения рекламы
+    // Sends a request for purchase of removing ads.
     func removeAds() {
         guard SKPaymentQueue.canMakePayments() else { return }
         
@@ -45,7 +45,7 @@ class IAPService: NSObject {
         SKPaymentQueue.default().add(payment)
     }
     
-    // Отправляет запрос на восстановление покупок
+    // Sends a request to restore purchases.
     func restorePurchases() {
         SKPaymentQueue.default().restoreCompletedTransactions()
     }
@@ -56,14 +56,12 @@ class IAPService: NSObject {
 
 extension IAPService: SKPaymentTransactionObserver {
     
-    // Обрабатывает состояния транзакций
+    // Processes transaction states.
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
         for transaction in transactions {
             switch transaction.transactionState {
             case .purchased:
                 SKPaymentQueue.default().finishTransaction(transaction)
-                
-                // Сообщаем делегату о завершении транзакции
                 delegate?.adsDisabled()
             case .failed:
                 SKPaymentQueue.default().finishTransaction(transaction)
@@ -73,8 +71,6 @@ extension IAPService: SKPaymentTransactionObserver {
                 }
             case .restored:
                 SKPaymentQueue.default().finishTransaction(transaction)
-                
-                // Сообщаем делегату о завершении восстановления покупок
                 delegate?.adsDisabled()
             default:
                 break

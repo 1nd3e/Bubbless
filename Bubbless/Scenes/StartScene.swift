@@ -27,10 +27,10 @@ extension StartScene {
     }
     
     override func didMove(to view: SKView) {
-        // Настраиваем параметры сцены игры
+        // Configure scene.
         addPhysicsEdges()
         
-        // Размещаем кнопки
+        // Configure nodes.
         configureRestoreButton(withDelay: 0)
         configureLeaderboardButton(withDelay: 2)
         configurePlayButton(withDelay: 4)

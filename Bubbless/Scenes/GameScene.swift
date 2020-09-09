@@ -30,17 +30,17 @@ class GameScene: SKScene {
 extension GameScene {
     
     override func didMove(to view: SKView) {
-        // Настраиваем параметры сцены игры
+        // Configure scene.
         addPhysicsEdges()
         
-        // Подготавливаем элементы игры к работе
+        // Prepare nodes and other gameplay objects.
         loadBubbles()
         prepareAudioPlayer()
         
-        // Размещаем элементы окружения
+        // Configure nodes.
         configureScoreLabel()
         
-        // Запускаем игровую логику
+        // Start the game.
         spawnBubbles()
     }
     
